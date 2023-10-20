@@ -291,6 +291,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 99;
 }
 
 .home__article-title {
@@ -599,6 +600,11 @@ body {
   display: flex;
   flex-direction: row;
   gap: 0rem 2rem;
+  margin-bottom: 80px;
+}
+
+.account__register-container:last-of-type{
+  margin-bottom: 40px;
 }
 
 .register__field {
@@ -608,7 +614,6 @@ body {
   align-items: center;
   width: 100%;
   position: relative;
-  margin-bottom: 80px;
 }
 
 .register__field .account__label {
