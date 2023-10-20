@@ -1,220 +1,349 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/js/pswSwitch.js"></script>
+    <script defer src="assets/js/scrollAccount.js"></script>
+    <title>Nebula</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <script defer src="assets/js/scrollAccount.js"></script>
-  <title>Nebula</title>
-</head>
-
-<body>
-  <main class="layout">
-    <div class="layout__light"></div>
-    <!-- NAVBAR -->
-    <nav class="layout__nav">
-      <div class="nav__container">
-        <div class="nav__logo"></div>
-        <ul class="nav__list">
-          <li class="nav__item nav__item--active">
-            <a class="nav__link" href="index.html">Inicio<svg class="nav__icon" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 576 512">
-                <path
-                  d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z" />
-              </svg></a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="cars.html">Coches
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                <path
-                  d="M640 320V368C640 385.7 625.7 400 608 400H574.7C567.1 445.4 527.6 480 480 480C432.4 480 392.9 445.4 385.3 400H254.7C247.1 445.4 207.6 480 160 480C112.4 480 72.94 445.4 65.33 400H32C14.33 400 0 385.7 0 368V256C0 228.9 16.81 205.8 40.56 196.4L82.2 92.35C96.78 55.9 132.1 32 171.3 32H353.2C382.4 32 409.1 45.26 428.2 68.03L528.2 193C591.2 200.1 640 254.8 640 319.1V320zM171.3 96C158.2 96 146.5 103.1 141.6 116.1L111.3 192H224V96H171.3zM272 192H445.4L378.2 108C372.2 100.4 362.1 96 353.2 96H272V192zM525.3 400C527 394.1 528 389.6 528 384C528 357.5 506.5 336 480 336C453.5 336 432 357.5 432 384C432 389.6 432.1 394.1 434.7 400C441.3 418.6 459.1 432 480 432C500.9 432 518.7 418.6 525.3 400zM205.3 400C207 394.1 208 389.6 208 384C208 357.5 186.5 336 160 336C133.5 336 112 357.5 112 384C112 389.6 112.1 394.1 114.7 400C121.3 418.6 139.1 432 160 432C180.9 432 198.7 418.6 205.3 400z" />
-              </svg></a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="categorias.html">Categorías
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path
-                  d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM64 160H128V96H64V160zM448 96H192V160H448V96zM64 288H128V224H64V288zM448 224H192V288H448V224zM64 416H128V352H64V416zM448 352H192V416H448V352z" />
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="concurso.html">Concurso
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <path
-                  d="M384 32H64C28.62 32 0 60.62 0 96v320c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V96C448 60.62 419.4 32 384 32zM128 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S145.6 384 128 384zM128 288C110.4 288 96 273.6 96 256s14.38-32 32-32s32 14.38 32 32S145.6 288 128 288zM128 192C110.4 192 96 177.6 96 160s14.38-32 32-32s32 14.38 32 32S145.6 192 128 192zM320 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 384 320 384zM320 288c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 288 320 288zM320 192c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 192 320 192z" />
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="informacion.html">Información
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path
-                  d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z" />
-              </svg></a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="sobre-nosotros.html">Nosotros
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path
-                  d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z" />
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="contacto.html">Contacto
-
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path
-                  d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a class="nav__link" href="cuenta.html">Cuenta
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <path
-                  d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- ACCOUNT -->
-    <section class="layout__account">
-      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="parallax">
-          <use xlink:href="#gentle-wave" x="48" y="0" fill=" #6964d3" />
-          <use xlink:href="#gentle-wave" x="48" y="3" fill="#137681" />
-          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-          <use xlink:href="#gentle-wave" x="48" y="7" fill="#eaeaf6" />
-        </g>
-      </svg>
-      <div class="account__container">
-        <div class="account__content">
-          <article class="account__article-login">
-            <h2 class="account__title">Iniciar sesión</h2>
-            <form class="account__form" action="">
-              <div class="account__field">
-                <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512">
+  <body>
+    <main class="layout">
+      <div class="layout__light"></div>
+      <!-- NAVBAR -->
+      <nav class="layout__nav">
+        <div class="nav__container">
+          <div class="nav__logo"></div>
+          <ul class="nav__list">
+            <li class="nav__item nav__item--active">
+              <a class="nav__link" href="index.html"
+                >Inicio<svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                >
                   <path
-                    d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" />
-                </svg>
-                <input placeholder="Usuario" class="account__input" type="text" />
-                <span class="account__label">Usuario</span>
-              </div>
-              <div class="account__field">
-                <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 512">
+                    d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"
+                  /></svg
+              ></a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="cars.html"
+                >Coches
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                >
                   <path
-                    d="M150.7 92.77C195 58.27 251.8 32 320 32C400.8 32 465.5 68.84 512.6 112.6C559.4 156 590.7 207.1 605.5 243.7C608.8 251.6 608.8 260.4 605.5 268.3C592.1 300.6 565.2 346.1 525.6 386.7L630.8 469.1C641.2 477.3 643.1 492.4 634.9 502.8C626.7 513.2 611.6 515.1 601.2 506.9L9.196 42.89C-1.236 34.71-3.065 19.63 5.112 9.196C13.29-1.236 28.37-3.065 38.81 5.112L150.7 92.77zM223.1 149.5L313.4 220.3C317.6 211.8 320 202.2 320 191.1C320 180.5 316.1 169.7 311.6 160.4C314.4 160.1 317.2 159.1 320 159.1C373 159.1 416 202.1 416 255.1C416 269.7 413.1 282.7 407.1 294.5L446.6 324.7C457.7 304.3 464 280.9 464 255.1C464 176.5 399.5 111.1 320 111.1C282.7 111.1 248.6 126.2 223.1 149.5zM320 480C239.2 480 174.5 443.2 127.4 399.4C80.62 355.1 49.34 304 34.46 268.3C31.18 260.4 31.18 251.6 34.46 243.7C44 220.8 60.29 191.2 83.09 161.5L177.4 235.8C176.5 242.4 176 249.1 176 255.1C176 335.5 240.5 400 320 400C338.7 400 356.6 396.4 373 389.9L446.2 447.5C409.9 467.1 367.8 480 320 480H320z" />
-                </svg>
-                <input placeholder="Contraseña" class="account__input" type="password" />
-                <span class="account__label">Contraseña</span>
-              </div>
-              <button type="submit" class="account__btn">Iniciar sesión</button>
-            </form>
-            <button id="btnRegisterScroll" class="account__btn account__btn-option">Registrarse</button>
-          </article>
-          <article class="account__article-register">
-            <h2 class="account__title">Registrarse</h2>
-            <form class="account__form" action="">
-              <div class="account__field">
-                <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512">
+                    d="M640 320V368C640 385.7 625.7 400 608 400H574.7C567.1 445.4 527.6 480 480 480C432.4 480 392.9 445.4 385.3 400H254.7C247.1 445.4 207.6 480 160 480C112.4 480 72.94 445.4 65.33 400H32C14.33 400 0 385.7 0 368V256C0 228.9 16.81 205.8 40.56 196.4L82.2 92.35C96.78 55.9 132.1 32 171.3 32H353.2C382.4 32 409.1 45.26 428.2 68.03L528.2 193C591.2 200.1 640 254.8 640 319.1V320zM171.3 96C158.2 96 146.5 103.1 141.6 116.1L111.3 192H224V96H171.3zM272 192H445.4L378.2 108C372.2 100.4 362.1 96 353.2 96H272V192zM525.3 400C527 394.1 528 389.6 528 384C528 357.5 506.5 336 480 336C453.5 336 432 357.5 432 384C432 389.6 432.1 394.1 434.7 400C441.3 418.6 459.1 432 480 432C500.9 432 518.7 418.6 525.3 400zM205.3 400C207 394.1 208 389.6 208 384C208 357.5 186.5 336 160 336C133.5 336 112 357.5 112 384C112 389.6 112.1 394.1 114.7 400C121.3 418.6 139.1 432 160 432C180.9 432 198.7 418.6 205.3 400z"
+                  /></svg
+              ></a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="categorias.html"
+                >Categorías
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
                   <path
-                    d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" />
+                    d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM64 160H128V96H64V160zM448 96H192V160H448V96zM64 288H128V224H64V288zM448 224H192V288H448V224zM64 416H128V352H64V416zM448 352H192V416H448V352z"
+                  />
                 </svg>
-                <input placeholder="Usuario" class="account__input" type="text" />
-                <span class="account__label">Usuario</span>
-              </div>
-              <div class="account__field">
-                <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 512">
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="concurso.html"
+                >Concurso
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
                   <path
-                    d="M150.7 92.77C195 58.27 251.8 32 320 32C400.8 32 465.5 68.84 512.6 112.6C559.4 156 590.7 207.1 605.5 243.7C608.8 251.6 608.8 260.4 605.5 268.3C592.1 300.6 565.2 346.1 525.6 386.7L630.8 469.1C641.2 477.3 643.1 492.4 634.9 502.8C626.7 513.2 611.6 515.1 601.2 506.9L9.196 42.89C-1.236 34.71-3.065 19.63 5.112 9.196C13.29-1.236 28.37-3.065 38.81 5.112L150.7 92.77zM223.1 149.5L313.4 220.3C317.6 211.8 320 202.2 320 191.1C320 180.5 316.1 169.7 311.6 160.4C314.4 160.1 317.2 159.1 320 159.1C373 159.1 416 202.1 416 255.1C416 269.7 413.1 282.7 407.1 294.5L446.6 324.7C457.7 304.3 464 280.9 464 255.1C464 176.5 399.5 111.1 320 111.1C282.7 111.1 248.6 126.2 223.1 149.5zM320 480C239.2 480 174.5 443.2 127.4 399.4C80.62 355.1 49.34 304 34.46 268.3C31.18 260.4 31.18 251.6 34.46 243.7C44 220.8 60.29 191.2 83.09 161.5L177.4 235.8C176.5 242.4 176 249.1 176 255.1C176 335.5 240.5 400 320 400C338.7 400 356.6 396.4 373 389.9L446.2 447.5C409.9 467.1 367.8 480 320 480H320z" />
+                    d="M384 32H64C28.62 32 0 60.62 0 96v320c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V96C448 60.62 419.4 32 384 32zM128 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S145.6 384 128 384zM128 288C110.4 288 96 273.6 96 256s14.38-32 32-32s32 14.38 32 32S145.6 288 128 288zM128 192C110.4 192 96 177.6 96 160s14.38-32 32-32s32 14.38 32 32S145.6 192 128 192zM320 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 384 320 384zM320 288c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 288 320 288zM320 192c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 192 320 192z"
+                  />
                 </svg>
-                <input placeholder="Contraseña" class="account__input" type="password" />
-                <span class="account__label">Contraseña</span>
-              </div>
-              <button type="submit" class="account__btn">Registrarse</button>
-            </form>
-            <button id="btnLoginScroll" class="account__btn account__btn-option">Iniciar sesión</button>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="informacion.html"
+                >Información
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"
+                  /></svg
+              ></a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="sobre-nosotros.html"
+                >Nosotros
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                >
+                  <path
+                    d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="contacto.html"
+                >Contacto
 
-          </article>
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="cuenta.html"
+                >Cuenta
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
-    </section>
-    <!-- FOOTER -->
-    <footer class="layout__footer">
-      <section class="footer__container">
-        <article class="footer__left">
-          <div class="footer__title">Nebula España</div>
-          <div class="footer__item">
-            Domicilio social: Avda. de Bruselas 30 28108 Alcobendas, Madrid
+      </nav>
+      <!-- ACCOUNT -->
+      <section class="layout__account">
+        <svg
+          class="waves"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+          shape-rendering="auto"
+        >
+          <defs>
+            <path
+              id="gentle-wave"
+              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+            />
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill=" #6964d3" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="#137681" />
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="5"
+              fill="rgba(255,255,255,0.3)"
+            />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#eaeaf6" />
+          </g>
+        </svg>
+        <div class="account__container">
+          <div class="account__content">
+            <article class="account__article-login">
+              <form class="account__form" action="">
+                <h2 class="account__title">Iniciar sesión</h2>
+                <div class="account__field">
+                  <svg
+                    class="account__icon account__icon--active"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+                    />
+                  </svg>
+                  <input
+                    placeholder="Usuario"
+                    class="account__input"
+                    type="text"
+                  />
+                  <span class="account__label">Usuario</span>
+                </div>
+                <div class="account__field">
+                  <svg
+                    id="psw-on"
+                    class="account__icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                  >
+                    <path
+                      d="M279.6 160.4C282.4 160.1 285.2 160 288 160C341 160 384 202.1 384 256C384 309 341 352 288 352C234.1 352 192 309 192 256C192 253.2 192.1 250.4 192.4 247.6C201.7 252.1 212.5 256 224 256C259.3 256 288 227.3 288 192C288 180.5 284.1 169.7 279.6 160.4zM480.6 112.6C527.4 156 558.7 207.1 573.5 243.7C576.8 251.6 576.8 260.4 573.5 268.3C558.7 304 527.4 355.1 480.6 399.4C433.5 443.2 368.8 480 288 480C207.2 480 142.5 443.2 95.42 399.4C48.62 355.1 17.34 304 2.461 268.3C-.8205 260.4-.8205 251.6 2.461 243.7C17.34 207.1 48.62 156 95.42 112.6C142.5 68.84 207.2 32 288 32C368.8 32 433.5 68.84 480.6 112.6V112.6zM288 112C208.5 112 144 176.5 144 256C144 335.5 208.5 400 288 400C367.5 400 432 335.5 432 256C432 176.5 367.5 112 288 112z"
+                    />
+                  </svg>
+                  <svg
+                    id="psw-off"
+                    class="account__icon account__icon--active"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 512"
+                  >
+                    <path
+                      d="M150.7 92.77C195 58.27 251.8 32 320 32C400.8 32 465.5 68.84 512.6 112.6C559.4 156 590.7 207.1 605.5 243.7C608.8 251.6 608.8 260.4 605.5 268.3C592.1 300.6 565.2 346.1 525.6 386.7L630.8 469.1C641.2 477.3 643.1 492.4 634.9 502.8C626.7 513.2 611.6 515.1 601.2 506.9L9.196 42.89C-1.236 34.71-3.065 19.63 5.112 9.196C13.29-1.236 28.37-3.065 38.81 5.112L150.7 92.77zM223.1 149.5L313.4 220.3C317.6 211.8 320 202.2 320 191.1C320 180.5 316.1 169.7 311.6 160.4C314.4 160.1 317.2 159.1 320 159.1C373 159.1 416 202.1 416 255.1C416 269.7 413.1 282.7 407.1 294.5L446.6 324.7C457.7 304.3 464 280.9 464 255.1C464 176.5 399.5 111.1 320 111.1C282.7 111.1 248.6 126.2 223.1 149.5zM320 480C239.2 480 174.5 443.2 127.4 399.4C80.62 355.1 49.34 304 34.46 268.3C31.18 260.4 31.18 251.6 34.46 243.7C44 220.8 60.29 191.2 83.09 161.5L177.4 235.8C176.5 242.4 176 249.1 176 255.1C176 335.5 240.5 400 320 400C338.7 400 356.6 396.4 373 389.9L446.2 447.5C409.9 467.1 367.8 480 320 480H320z"
+                    />
+                  </svg>
+                  <input
+                    id="account-login-psw"
+                    placeholder="Contraseña"
+                    class="account__input"
+                    type="password"
+                  />
+                  <span class="account__label">Contraseña</span>
+                </div>
+                <button type="submit" class="account__btn">
+                  Iniciar sesión
+                </button>
+                <button
+                  id="btnRegisterScroll"
+                  class="account__btn account__btn-option"
+                >
+                  ¿No tienes cuenta? Regístrate
+                </button>
+              </form>
+            </article>
+            <article class="account__article-register">
+              <form class="account__form" action="">
+                <h2 class="account__title">Registrarse</h2>
+                <div class="account__field">
+                  <svg
+                    class="account__icon account__icon--active"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+                    />
+                  </svg>
+                  <input
+                    placeholder="Usuario"
+                    class="account__input"
+                    type="text"
+                  />
+                  <span class="account__label">Usuario</span>
+                </div>
+                <div class="account__field">
+                  <svg
+                    class="account__icon account__icon--active"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 512"
+                  >
+                    <path
+                      d="M150.7 92.77C195 58.27 251.8 32 320 32C400.8 32 465.5 68.84 512.6 112.6C559.4 156 590.7 207.1 605.5 243.7C608.8 251.6 608.8 260.4 605.5 268.3C592.1 300.6 565.2 346.1 525.6 386.7L630.8 469.1C641.2 477.3 643.1 492.4 634.9 502.8C626.7 513.2 611.6 515.1 601.2 506.9L9.196 42.89C-1.236 34.71-3.065 19.63 5.112 9.196C13.29-1.236 28.37-3.065 38.81 5.112L150.7 92.77zM223.1 149.5L313.4 220.3C317.6 211.8 320 202.2 320 191.1C320 180.5 316.1 169.7 311.6 160.4C314.4 160.1 317.2 159.1 320 159.1C373 159.1 416 202.1 416 255.1C416 269.7 413.1 282.7 407.1 294.5L446.6 324.7C457.7 304.3 464 280.9 464 255.1C464 176.5 399.5 111.1 320 111.1C282.7 111.1 248.6 126.2 223.1 149.5zM320 480C239.2 480 174.5 443.2 127.4 399.4C80.62 355.1 49.34 304 34.46 268.3C31.18 260.4 31.18 251.6 34.46 243.7C44 220.8 60.29 191.2 83.09 161.5L177.4 235.8C176.5 242.4 176 249.1 176 255.1C176 335.5 240.5 400 320 400C338.7 400 356.6 396.4 373 389.9L446.2 447.5C409.9 467.1 367.8 480 320 480H320z"
+                    />
+                  </svg>
+                  <input
+                    placeholder="Contraseña"
+                    class="account__input"
+                    type="password"
+                  />
+                  <span class="account__label">Contraseña</span>
+                </div>
+                <button type="submit" class="account__btn">Registrarse</button>
+                <button
+                  id="btnLoginScroll"
+                  class="account__btn account__btn-option"
+                >
+                  Inicia sesión con tu cuenta
+                </button>
+              </form>
+            </article>
           </div>
-          <div class="footer__item">Teléfono: 900 100 100</div>
-          <div class="footer__item">
-            Correo electrónico: atencionclientes@nebula.com
-          </div>
-          <div class="footer__item">
-            Horario apertura: Lunes-Viernes 9:00 a 21:00
-          </div>
-        </article>
-        <article class="footer__right">
-          <div class="footer__title">Navegación</div>
-          <div class="footer__right-container">
-            <div class="footer__right-content">
-              <ul class="footer_nav">
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="index.html">Inicio</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="coches.html">Coches</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="categorias.html">Categorias</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="concurso.html">Concurso</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer__right-content">
-              <ul class="footer_nav">
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="informacion.html">Información</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="informacion.html">Nosotros</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="informacion.html">Contacto</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="cuenta.html">Cuenta</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        </div>
       </section>
-      <section class="footer__bottom">
-        &copy;2023 Nebula<a class="footer__link" href="https://www.ccorreas.com">ccorreas.com</a>
-      </section>
-    </footer>
-  </main>
-</body>
-
+      <!-- FOOTER -->
+      <footer class="layout__footer">
+        <section class="footer__container">
+          <article class="footer__left">
+            <div class="footer__title">Nebula España</div>
+            <div class="footer__item">
+              Domicilio social: Avda. de Bruselas 30 28108 Alcobendas, Madrid
+            </div>
+            <div class="footer__item">Teléfono: 900 100 100</div>
+            <div class="footer__item">
+              Correo electrónico: atencionclientes@nebula.com
+            </div>
+            <div class="footer__item">
+              Horario apertura: Lunes-Viernes 9:00 a 21:00
+            </div>
+          </article>
+          <article class="footer__right">
+            <div class="footer__title">Navegación</div>
+            <div class="footer__right-container">
+              <div class="footer__right-content">
+                <ul class="footer_nav">
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="index.html">Inicio</a>
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="coches.html">Coches</a>
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="categorias.html"
+                      >Categorias</a
+                    >
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="concurso.html"
+                      >Concurso</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="footer__right-content">
+                <ul class="footer_nav">
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="informacion.html"
+                      >Información</a
+                    >
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="informacion.html"
+                      >Nosotros</a
+                    >
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="informacion.html"
+                      >Contacto</a
+                    >
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="cuenta.html">Cuenta</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="footer__bottom">
+          &copy;2023 Nebula<a
+            class="footer__link"
+            href="https://www.ccorreas.com"
+            >ccorreas.com</a
+          >
+        </section>
+      </footer>
+    </main>
+  </body>
 </html>

@@ -487,6 +487,23 @@ body {
   height: 100%;
 }
 
+.account__title {
+  font-size: 3rem;
+  color: var(--color-text);
+  text-align: center;
+  padding: 3rem;
+  margin-bottom: 80px;
+}
+
+.account__form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .account__article-register {
   height: 100%;
   width: 100vw;
@@ -499,11 +516,17 @@ body {
   align-items: center;
   width: 100%;
   position: relative;
+  margin-bottom: 80px;
+}
+
+.account__field:last-of-type{
+  margin-bottom: 20px;
 }
 
 .account__field .account__label {
   position: absolute;
-  background-color: var(--color-principal);
+  background-color: var(--color-secondary);
+  color: var(--color-text);
   width: 250px;
   height: 50px;
   pointer-events: none;
@@ -539,13 +562,19 @@ body {
   display: inline-block;
   width: 250px;
   height: 50px;
-  background-color: var(--color-principal);
+  background-color: transparent;
   color: var(--color-text);
+  border: solid 1px var(--color-text);
   transition: all 300ms ease-in-out;
 }
 
-.login__btn:hover {
-  background-color: var(--color-secondary-2);
+.account__btn:hover {
+  color: var(--color-primary);
+ background-color: var(--color-text);
+}
+
+.account__btn-option {
+  margin-top: 80px;
 }
 
 .account__icon {
