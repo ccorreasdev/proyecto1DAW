@@ -279,7 +279,8 @@ body {
 }
 
 /* ESTILOS HOME */
-.layout__home {
+.layout__home,
+.layout__account {
   margin-top: 90px;
   width: 100%;
   height: 100%;
@@ -320,33 +321,32 @@ body {
   bottom: 0px;
   left: -20%;
   width: 150%;
-  min-height:100px;
-  max-height:150px;
+  min-height: 100px;
+  max-height: 150px;
   z-index: -1;
   filter: blur(40px);
-
 }
 
-.parallax>use {
-  animation: animationWave 25s cubic-bezier(.55, .5, .45, .5) infinite;
+.parallax > use {
+  animation: animationWave 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 
-.parallax>use:nth-child(1) {
+.parallax > use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
 }
 
-.parallax>use:nth-child(2) {
+.parallax > use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
 }
 
-.parallax>use:nth-child(3) {
+.parallax > use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
 }
 
-.parallax>use:nth-child(4) {
+.parallax > use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
 }
@@ -354,11 +354,11 @@ body {
 @keyframes animationWave {
   0% {
     transform: translate3d(-90px, 0, 0);
-}
+  }
 
-100% {
+  100% {
     transform: translate3d(85px, 0, 0);
-}
+  }
 }
 
 .home__square {
@@ -466,6 +466,104 @@ body {
 .home__img {
   width: 80%;
   max-width: 1080px;
+}
+
+/*ESTILOS ACCOUNT*/
+.account__container {
+  width: 100%;
+  height: calc(100vh - 90px);
+  padding: 5rem;
+}
+
+.account__content {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-secondary-a);
+  overflow: hidden;
+}
+
+.account__article-login {
+  width: 100vw;
+  height: 100%;
+}
+
+.account__article-register {
+  height: 100%;
+  width: 100vw;
+}
+
+.account__field {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.account__field .account__label {
+  position: absolute;
+  background-color: var(--color-principal);
+  width: 250px;
+  height: 50px;
+  pointer-events: none;
+  transition: all 300ms ease-in-out;
+  opacity: 0;
+  font-size: 2.2rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+}
+
+.account__input:not(.account__input:placeholder-shown) ~ .account__label {
+  transform: translateY(-50px);
+  opacity: 1;
+  z-index: 1;
+}
+
+.account__input {
+  font-size: 1.6rem;
+  display: inline-block;
+  width: 250px;
+  height: 50px;
+  padding-left: 1rem;
+  padding-right: 4rem;
+}
+
+.account__btn {
+  cursor: pointer;
+  border: none;
+  font-size: 1.6rem;
+  display: inline-block;
+  width: 250px;
+  height: 50px;
+  background-color: var(--color-principal);
+  color: var(--color-text);
+  transition: all 300ms ease-in-out;
+}
+
+.login__btn:hover {
+  background-color: var(--color-secondary-2);
+}
+
+.account__icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: calc(50% - 110px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.account__icon--active {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: calc(50% - 110px);
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* ESTILOS FOOTER */
