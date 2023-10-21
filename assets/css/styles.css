@@ -488,12 +488,19 @@ body {
   height: 100%;
 }
 
+.account__register__title-login {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
 .account__title {
   font-size: 3rem;
   color: var(--color-text);
   text-align: center;
-  padding: 3rem;
-  margin-bottom: 80px;
+  padding: 2rem;
 }
 
 .account__form {
@@ -510,6 +517,16 @@ body {
   width: 100vw;
 }
 
+.account__login-container {
+  margin-top: 80px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .account__field {
   display: flex;
   flex-direction: row;
@@ -520,7 +537,7 @@ body {
   margin-bottom: 80px;
 }
 
-.account__field:last-of-type{
+.account__field:last-of-type {
   margin-bottom: 20px;
 }
 
@@ -563,19 +580,38 @@ body {
   display: inline-block;
   width: 250px;
   height: 50px;
-  background-color: transparent;
+  background-color: var(--color-terciary);
   color: var(--color-text);
   border: solid 1px var(--color-text);
   transition: all 300ms ease-in-out;
 }
 
+/* .account__btn::after {
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 100%;
+  background-color: var(--color-secondary);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 300ms ease-in-out;
+}
+
+.account__btn:hover::after {
+  width: 100%;
+} */
+
 .account__btn:hover {
-  color: var(--color-primary);
- background-color: var(--color-text);
+  text-shadow: 0px 0px 5px var(--color-text);
+  /* color: var(--color-primary);
+  background-color: var(--color-text); */
 }
 
 .account__btn-option {
-  margin-top: 80px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .account__icon {
@@ -596,18 +632,118 @@ body {
   pointer-events: all;
 }
 
-.account__register-container {
+.register__path {
+  height: 80px;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 0rem 2rem;
-  margin-bottom: 80px;
+  justify-content: center;
+  align-items: center;
 }
 
-.account__register-container:last-of-type{
-  margin-bottom: 40px;
+.path__option {
+  cursor: pointer;
+  width: 125px;
+  padding: 1rem;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--color-text);
+  position: relative;
+  margin-right: 20px;
+  background-color: var(--color-primary);
+  transition: all 300ms ease-in-out;
+  position: relative;
+}
+
+.path__option:hover {
+  text-shadow: 0px 0px 5px var(--color-text);
+}
+
+.path__line {
+  position: relative;
+}
+
+.path__line::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 0px;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-text);
+}
+
+.path__option--active {
+  background-color: var(--color-terciary);
+}
+
+.account__register-forms {
+  transition: 0.3s ease all;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.register-forms-child {
+  scroll-snap-align: start;
+  min-width: 100%;
+}
+
+.account__register-container {
+  height: 100%;
+  max-width: 550px;
+  margin: 0px auto;
+  display: grid;
+  margin-top: 40px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "one two"
+    "three four"
+    "five six"
+    "seven eight";
+  place-content: center;
+}
+
+.register__grid-one {
+  grid-area: one;
+}
+
+.register__grid-two {
+  grid-area: two;
+}
+
+.register__grid-three {
+  grid-area: three;
+}
+
+.register__grid-four {
+  grid-area: four;
+}
+
+.register__grid-five {
+  grid-area: five;
+}
+
+.register__grid-six {
+  grid-area: six;
+  display: grid;
+  place-content: center;
+}
+
+.account__register-container:last-of-type {
+  /* margin-bottom: 40px; */
 }
 
 .register__field {
+  margin-bottom: 40px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -632,7 +768,6 @@ body {
   align-items: center;
   z-index: 1;
 }
-
 
 /* ESTILOS FOOTER */
 .layout__footer {
