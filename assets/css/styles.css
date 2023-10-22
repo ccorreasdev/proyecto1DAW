@@ -40,6 +40,7 @@ ul {
   --color-text: #eaeaf6;
   --color-subtitle: #d5d5e0;
   --bg-container: #eaeaf665;
+  --color-error: red;
 }
 
 html {
@@ -571,6 +572,40 @@ body {
   height: 50px;
   padding-left: 1rem;
   padding-right: 4rem;
+  transition: all 300ms ease-in-out;
+}
+
+.account__input--error {
+  color: var(--color-primary);
+  border: solid 2.5px var(--color-error);
+}
+
+.date__input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date__input:valid ~ .account__label-date {
+  transform: translateY(-50px);
+  opacity: 1;
+}
+
+.account__label-date {
+  position: absolute;
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  width: 250px;
+  height: 50px;
+  pointer-events: none;
+  transition: all 300ms ease-in-out;
+  opacity: 0;
+  font-size: 2.2rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
 }
 
 .account__btn {
@@ -736,6 +771,14 @@ body {
   grid-area: six;
   display: grid;
   place-content: center;
+}
+
+.register__grid-seven {
+  grid-area: seven;
+}
+
+.register__grid-eight {
+  grid-area: eight;
 }
 
 .account__register-container:last-of-type {
