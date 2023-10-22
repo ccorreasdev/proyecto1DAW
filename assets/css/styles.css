@@ -41,6 +41,8 @@ ul {
   --color-subtitle: #d5d5e0;
   --bg-container: #eaeaf665;
   --color-error: red;
+  --color-bingo-cell: #dae2f7;
+  --color-bingo-text: #3073cd;
 }
 
 html {
@@ -281,7 +283,8 @@ body {
 
 /* ESTILOS HOME */
 .layout__home,
-.layout__account {
+.layout__account,
+.layout__contact {
   margin-top: 90px;
   width: 100%;
   height: 100%;
@@ -468,6 +471,84 @@ body {
 .home__img {
   width: 80%;
   max-width: 1080px;
+}
+
+/* ESTILOS CONCURSO */
+.bingo__tabla {
+  border-collapse: collapse;
+}
+
+.bingo__tabla-cell {
+  border: solid 2px var(--color-bingo-text);
+  width: 80px;
+  height: 80px;
+  font-size: 4.5rem;
+  text-align: center;
+  color: var(--color-bingo-text);
+  background-color: var(--color-text);
+}
+
+.cell-hl {
+  background-color: var(--color-bingo-cell);
+}
+
+/* ESTILOS CONTACTO */
+.contact__textarea {
+  width: 520px;
+  height: 200px;
+  font-size: 1.6rem;
+  display: inline-block;
+  padding-left: 1rem;
+  padding-right: 4rem;
+  padding-top: 1rem;
+  transition: all 300ms ease-in-out;
+  resize: none;
+}
+
+.contact__name-email {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem 2rem;
+  width: auto;
+  height: auto;
+  margin-bottom: 70px;
+}
+
+.contact__name-email .account__field {
+  margin: 0;
+  padding: 0;
+}
+
+.contact__name-email .account__field:last-of-type {
+  margin: 0;
+  padding: 0;
+}
+
+.contact__textarea__label {
+  position: absolute;
+  top: 0;
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  width: 520px;
+  height: 50px;
+  pointer-events: none;
+  transition: all 300ms ease-in-out;
+  opacity: 0;
+  font-size: 2.2rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+}
+
+.contact__textarea:not(.contact__textarea:placeholder-shown)
+  ~ .contact__textarea__label {
+  transform: translateY(-50px);
+  opacity: 1;
+  z-index: 1;
 }
 
 /*ESTILOS ACCOUNT*/
