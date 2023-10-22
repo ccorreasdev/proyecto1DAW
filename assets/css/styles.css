@@ -39,6 +39,7 @@ ul {
   --color-quaternary: #164d61;
   --color-text: #eaeaf6;
   --color-subtitle: #d5d5e0;
+  --color-description: rgb(95, 95, 95);
   --bg-container: #eaeaf665;
   --color-error: red;
   --color-bingo-cell: #dae2f7;
@@ -284,7 +285,9 @@ body {
 /* ESTILOS HOME */
 .layout__home,
 .layout__account,
-.layout__contact {
+.layout__contact,
+.layout__concurso,
+.layout__information {
   margin-top: 90px;
   width: 100%;
   height: 100%;
@@ -474,7 +477,17 @@ body {
 }
 
 /* ESTILOS CONCURSO */
+.concurso__article {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .bingo__tabla {
+  height: 100%;
   border-collapse: collapse;
 }
 
@@ -490,6 +503,57 @@ body {
 
 .cell-hl {
   background-color: var(--color-bingo-cell);
+}
+
+/* ESTILOS INFORMACION */
+.information__container {
+  width: 100%;
+  height: 100%;
+  padding: 5rem;
+}
+
+.information__article {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.information__document {
+  padding: 4rem;
+}
+
+.information__text {
+  font-size: 1.8rem;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.information__point {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  color: var(--color-text);
+}
+
+.information__subpoint {
+  color: var(--color-text);
+  font-weight: bold;
+  position: relative;
+}
+
+.information__subpoint::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: var(--color-terciary);
+  filter: blur(3px);
 }
 
 /* ESTILOS CONTACTO */
@@ -552,13 +616,16 @@ body {
 }
 
 /*ESTILOS ACCOUNT*/
-.account__container {
+.account__container,
+.concurso__container {
   width: 100%;
   height: calc(100vh - 90px);
   padding: 5rem;
 }
 
-.account__content {
+.account__content,
+.concurso__content,
+.information__content {
   width: 100%;
   height: 100%;
   background-color: var(--color-secondary-a);
@@ -578,7 +645,9 @@ body {
   width: 100%;
 }
 
-.account__title {
+.account__title,
+.concurso__title,
+.information__title {
   font-size: 3rem;
   color: var(--color-text);
   text-align: center;
