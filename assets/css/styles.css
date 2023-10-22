@@ -190,7 +190,7 @@ body {
 .layout__nav {
   font-family: "NouvelR", Arial, Helvetica, sans-serif;
   position: relative;
-  position: fixed;
+
   z-index: 99;
   width: 100%;
   height: 90px;
@@ -288,7 +288,6 @@ body {
 .layout__contact,
 .layout__concurso,
 .layout__information {
-  margin-top: 90px;
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 90px);
@@ -531,32 +530,55 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.information__text-final {
+  margin-top: 4rem;
+}
+
 .information__point {
   margin-top: 4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   font-size: 3rem;
   color: var(--color-text);
+  padding: 1rem 1rem 1rem 0rem;
+  background-color: var(--color-secondary-a);
+  width: auto;
+  display: inline-block;
+}
+
+.information__number {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  padding: 1rem;
+  margin-right: 1rem;
 }
 
 .information__subpoint {
   color: var(--color-text);
   font-weight: bold;
   position: relative;
+  background-color: var(--color-terciary-a);
+  padding: 1rem 1rem 1rem 0rem;
+  line-height: 5rem;
+  margin-right: 1rem;
 }
 
-.information__subpoint::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
+.information__subpoint__number {
   background-color: var(--color-terciary);
-  filter: blur(3px);
+  padding: 1rem;
+  margin-right: 1rem;
 }
 
 /* ESTILOS CONTACTO */
+.contact__content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .contact__textarea {
   width: 520px;
   height: 200px;
@@ -617,7 +639,8 @@ body {
 
 /*ESTILOS ACCOUNT*/
 .account__container,
-.concurso__container {
+.concurso__container,
+.contact__container {
   width: 100%;
   height: calc(100vh - 90px);
   padding: 5rem;
@@ -628,7 +651,7 @@ body {
 .information__content {
   width: 100%;
   height: 100%;
-  background-color: var(--color-secondary-a);
+  /* background-color: var(--color-secondary-a); */
   overflow: hidden;
 }
 
@@ -641,8 +664,21 @@ body {
   position: relative;
   display: flex;
   flex-direction: row;
+  text-align: center;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  background-color: var(--color-secondary-a);
+}
+
+.concurso__title,
+.information__title {
+  background-color: var(--color-secondary-a);
+}
+
+.account__title {
+  width: 100%;
+  text-align: center;
 }
 
 .account__title,
@@ -652,6 +688,7 @@ body {
   color: var(--color-text);
   text-align: center;
   padding: 2rem;
+  position: relative;
 }
 
 .account__form {
