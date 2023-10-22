@@ -719,7 +719,6 @@ body {
 .account__register-forms {
   transition: 0.3s ease all;
   overflow: hidden;
-  scroll-snap-type: x mandatory;
   width: 100%;
   height: 100%;
   display: flex;
@@ -727,8 +726,8 @@ body {
 }
 
 .register-forms-child {
-  scroll-snap-align: start;
   min-width: 100%;
+  max-width: 100%;
 }
 
 .account__register-container {

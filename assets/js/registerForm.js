@@ -92,9 +92,11 @@ const setContentContact = () => {
   registerPersonal.classList.add("path__option--active");
   registerContact.classList.add("path__option--active");
   registerDirection.classList.remove("path__option--active");
+  const scrollLeftOffset =
+    document.querySelector("#register-form-2").offsetLeft;
 
   registerForm.scroll({
-    left: registerForm.scrollWidth / 2,
+    left: scrollLeftOffset - 50,
     behavior: "smooth",
   });
 };
