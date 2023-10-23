@@ -79,6 +79,13 @@ body {
   background-color: var(--color-primary);
 }
 
+.canvas__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
 .layout::after {
   position: absolute;
   margin-top: 90px;
