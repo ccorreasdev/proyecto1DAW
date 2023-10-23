@@ -48,6 +48,8 @@ ul {
   --color-description: rgb(95, 95, 95);
   --bg-container: #eaeaf665;
   --color-error: red;
+  --color-error-a: rgba(255, 0, 0, 0.55);
+  --color-input-focus: #6a64d3d0;
   --color-bingo-cell: #dae2f7;
   --color-bingo-text: #3073cd;
 }
@@ -595,6 +597,17 @@ body {
   padding-top: 1rem;
   transition: all 300ms ease-in-out;
   resize: none;
+  background-color: var(--color-secondary-a);
+  color: var(--color-text);
+  border: none;
+}
+
+.contact__textarea:focus {
+  outline: none;
+}
+
+.contact__textarea::placeholder {
+  color: var(--color-text);
 }
 
 .contact__name-email {
@@ -764,19 +777,41 @@ body {
   width: 250px;
   height: 50px;
   padding-left: 1rem;
-  padding-right: 4rem;
+  padding-right: 70px;
   transition: all 300ms ease-in-out;
+  background-color: var(--color-secondary-a);
+  color: var(--color-text);
+  border: none;
+  position: relative;
+}
+
+.account__input:focus {
+  outline: none;
+}
+
+.account__input::placeholder {
+  color: var(--color-text);
 }
 
 .account__input--error {
-  color: var(--color-primary);
-  border: solid 2.5px var(--color-error);
+  color: var(--color-text);
+  position: relative;
+  background-color: var(--color-error-a);
+  z-index: 1;
 }
 
 .date__input {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.date__input:invalid {
+  color: white;
+}
+
+.date__input::placeholder {
+  color: var(--color-text);
 }
 
 .date__input:valid ~ .account__label-date {
@@ -878,20 +913,34 @@ body {
   z-index: 99;
 }
 
+.account__icon-container {
+  background-color: var(--color-secondary);
+  position: absolute;
+  opacity: 1;
+  right: calc(50% - 125px);
+  width: 50px;
+  height: 50px;
+  transition: all 300ms ease-in-out;
+  z-index: 99;
+}
+
+.account__input:focus + .account__icon-container {
+  background-color: var(--color-input-focus);
+}
+
 .account__icon {
   width: 20px;
   height: 20px;
   position: absolute;
-  right: calc(50% - 110px);
+  top: 15px;
+  left: 14px;
   opacity: 0;
   pointer-events: none;
+  fill: var(--color-text);
+  z-index: 99;
 }
 
 .account__icon--active {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  right: calc(50% - 110px);
   opacity: 1;
   pointer-events: all;
 }
