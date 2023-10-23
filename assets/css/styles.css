@@ -42,6 +42,9 @@ ul {
   --color-secondary-a: #13768165;
   --color-terciary: #6964d3;
   --color-terciary-a: #6964d365;
+  --color-terciary-1: #2c288b;
+  --color-terciary-2: #201d63;
+  --color-terciary-3: #3933b2;
   --color-quaternary: #164d61;
   --color-text: #eaeaf6;
   --color-subtitle: #d5d5e0;
@@ -340,6 +343,8 @@ body {
   max-height: 150px;
   z-index: -1;
   filter: blur(40px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .parallax > use {
@@ -848,6 +853,16 @@ body {
   /* border: solid 1px var(--color-text); */
   transition: all 300ms ease-in-out;
   position: relative;
+  background: linear-gradient(
+    90deg,
+    var(--color-terciary),
+    var(--color-terciary-3),
+    var(--color-terciary-2)
+  );
+}
+
+.account__btn-login {
+  margin-top: 2rem;
 }
 
 .account__btn::after {
@@ -905,12 +920,18 @@ body {
   height: 50px;
   background-color: var(--color-terciary);
   color: var(--color-text);
-  border: solid 1px var(--color-text);
+  /* border: solid 1px var(--color-text); */
   transition: all 300ms ease-in-out;
   position: absolute;
   top: calc(50% - 25px);
   left: 15px;
   z-index: 99;
+  background: linear-gradient(
+    90deg,
+    var(--color-terciary),
+    var(--color-terciary-3),
+    var(--color-terciary-2)
+  );
 }
 
 .account__icon-container {
@@ -925,6 +946,16 @@ body {
 }
 
 .account__input:focus + .account__icon-container {
+  background-color: var(--color-input-focus);
+}
+
+.contact__icon-container {
+  height: 100%;
+  position: absolute;
+  right: calc(50% - 260px);
+}
+
+.contact__textarea:focus + .contact__icon-container {
   background-color: var(--color-input-focus);
 }
 
@@ -993,6 +1024,12 @@ body {
 
 .path__option--active {
   background-color: var(--color-terciary);
+  background: linear-gradient(
+    90deg,
+    var(--color-terciary),
+    var(--color-terciary-3),
+    var(--color-terciary-2)
+  );
 }
 
 .account__register-forms {
