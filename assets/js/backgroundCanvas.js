@@ -16,10 +16,13 @@ const initializePoints = () => {
   for (let i = 0; i < pointsNumber; i++) {
     let pointX = Math.random() * backgroundCanvas.width;
     let pointY = Math.random() * backgroundCanvas.height;
-    let colorR = int(Math.random() * 256);
-    let colorG = int(Math.random() * 256);
-    let colorB = int(Math.random() * 256);
+    let colorR = parseInt(Math.random() * 256);
+    let colorG = parseInt(Math.random() * 256);
+    let colorB = parseInt(Math.random() * 256);
+    let colorOpacity = Math.random();
     console.log(colorR);
+    console.log(colorG);
+    console.log(colorB);
     let pointXVel = (Math.random() - 0.5) * 10;
     let pointYVel = (Math.random() - 0.5) * 10;
     let pointSize = Math.random() * 10;
@@ -32,6 +35,7 @@ const initializePoints = () => {
       colorR,
       colorG,
       colorB,
+      colorOpacity,
     });
   }
 };
@@ -44,6 +48,7 @@ const drawPoints = () => {
     context.arc(point.pointX, point.pointY, point.pointSize, 0, 2 * Math.PI);
     point.pointX += point.pointXVel;
     point.pointY += point.pointYVel;
+    point.colorOpacity = 1;
 
     if (point.pointX < 0 || point.pointX > backgroundCanvas.width) {
       point.pointXVel = -point.pointXVel;
@@ -53,8 +58,9 @@ const drawPoints = () => {
       point.pointYVel = -point.pointYVel;
     }
 
-    context.fillStyle = "#ffffff5a";
-    // context.fillStyle = `rgb(${point.colorR},${point.coloG},${point.colorB})`;
+    // context.fillStyle = `rgba(${point.colorR},${point.colorG},${point.colorB},${point.colorOpacity})`;
+    console.log("OPACIDAD: " + point.colorOpacity);
+    context.fillStyle = `rgba(255,255,255, ${point.colorOpacity})`;
     context.fill();
   }
   requestAnimationFrame(drawPoints);
