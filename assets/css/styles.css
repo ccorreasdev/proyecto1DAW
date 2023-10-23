@@ -37,6 +37,7 @@ ul {
 }
 
 :root {
+  --color-nodes: #00000070;
   --color-primary: #151424;
   --color-secondary: #137681;
   --color-secondary-a: #13768165;
@@ -85,6 +86,7 @@ body {
   left: 0;
   z-index: 99;
   pointer-events: none;
+  padding-top: 90px;
 }
 
 .layout::after {

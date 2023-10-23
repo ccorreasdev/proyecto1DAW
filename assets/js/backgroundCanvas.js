@@ -26,9 +26,17 @@ const initializePoints = () => {
     pointsOpacityDirection.push(false);
     let pointX = Math.random() * backgroundCanvas.width;
     let pointY = Math.random() * backgroundCanvas.height;
-    let colorR = parseInt(Math.random() * 256);
-    let colorG = parseInt(Math.random() * 256);
-    let colorB = parseInt(Math.random() * 256);
+    let pointColor;
+    const colorRandomSelector = Math.random() * 3;
+
+    if (colorRandomSelector >= 2) {
+      pointColor = "19,118,129";
+    } else if (colorRandomSelector >= 1) {
+      pointColor = "105,100,211";
+    } else if (colorRandomSelector >= 0) {
+      pointColor = "234,234,246";
+    }
+
     let colorOpacity = Math.random();
     let pointXVel = (Math.random() - 0.5) * 0.5;
     let pointYVel = (Math.random() - 0.5) * 0.5;
@@ -39,9 +47,7 @@ const initializePoints = () => {
       pointXVel,
       pointYVel,
       pointSize,
-      colorR,
-      colorG,
-      colorB,
+      pointColor,
       colorOpacity,
     });
   }
@@ -51,8 +57,11 @@ const drawPoints = () => {
   context.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
 
   for (let i = 0; i < pointsNumber; i++) {
-    let point = points[i];
     context.beginPath();
+    let point = points[i];
+
+    context.filter = "blur(5px)";
+
     context.arc(point.pointX, point.pointY, point.pointSize, 0, 2 * Math.PI);
     point.pointX += point.pointXVel;
     point.pointY += point.pointYVel;
@@ -80,8 +89,24 @@ const drawPoints = () => {
 
     // context.fillStyle = `rgba(${point.colorR},${point.colorG},${point.colorB},${point.colorOpacity})`;
 
-    context.fillStyle = `rgba(255,255,255, ${point.colorOpacity})`;
+    context.fillStyle = `rgba(${point.pointColor}, ${point.colorOpacity})`;
+
     context.fill();
+
+    context.closePath();
+
+    //Dibujamos las líneas de los nodos
+
+    context.lineWidth = 0.5;
+    context.strokeStyle = "#000000ec";
+    context.moveTo(point.pointX, point.pointY);
+    if (i + 1 >= pointsNumber) {
+      context.lineTo(points[0].pointX, points[0].pointY);
+      context.stroke();
+    } else {
+      context.lineTo(points[i + 1].pointX, points[i + 1].pointY);
+      context.stroke();
+    }
   }
 
   for (let i = 0; i < pointsGenerated.length; i++) {
@@ -93,7 +118,7 @@ const drawPoints = () => {
       0,
       2 * Math.PI
     );
-    context.fillStyle = "#ffffff2a";
+    context.fillStyle = "#ffffff3a";
     context.fill();
   }
 
@@ -102,12 +127,11 @@ const drawPoints = () => {
 
 document.addEventListener("mousemove", (e) => {
   mouseX = e.clientX;
-  mouseY = e.clientY;
+  mouseY = e.clientY + window.scrollY - 90;
+
   pointsGenerated.push({ mouseX, mouseY });
 
   setTimeout(() => {
-    console.log(pointsGenerated.length);
-
     if (pointsGenerated.length > 1) {
       pointsGenerated.shift();
     }
