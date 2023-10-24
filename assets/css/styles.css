@@ -528,8 +528,13 @@ body {
 .cars__car {
   height: 200px;
   width: 450px;
-  background-color: var(--bg-container);
   position: relative;
+  background-color: var(--bg-container);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--color-text);
 }
 
 .car__img-container {
