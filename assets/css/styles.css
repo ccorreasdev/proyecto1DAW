@@ -320,7 +320,8 @@ body {
 .layout__account,
 .layout__contact,
 .layout__concurso,
-.layout__information {
+.layout__information,
+.layout__cars {
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 90px);
@@ -508,6 +509,38 @@ body {
 .home__img {
   width: 80%;
   max-width: 1080px;
+}
+
+/* ESTILOS COCHES */
+.cars__container {
+  width: 100%;
+  min-height: calc(100vh - 90px);
+  height: 100%;
+  padding: 5rem;
+}
+
+.cars__list {
+  height: 100%;
+  width: 100%;
+  margin-top: 14rem;
+}
+
+.cars__car {
+  height: 200px;
+  width: 450px;
+  background-color: var(--bg-container);
+  position: relative;
+}
+
+.car__img-container {
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  height: 100%;
+}
+
+.car__img {
+  max-width: 100%;
 }
 
 /* ESTILOS CONCURSO */
@@ -992,6 +1025,10 @@ body {
   background-color: var(--color-input-focus);
 }
 
+.account__input:focus + .account__icon-container .account__icon {
+  scale: 1.2;
+}
+
 .contact__icon-container {
   height: 100%;
   position: absolute;
@@ -1000,6 +1037,10 @@ body {
 
 .contact__textarea:focus + .contact__icon-container {
   background-color: var(--color-input-focus);
+}
+
+.contact__textarea:focus + .contact__icon-container .account__icon {
+  scale: 1.2;
 }
 
 .account__icon {
@@ -1012,6 +1053,7 @@ body {
   pointer-events: none;
   fill: var(--color-text);
   z-index: 99;
+  transition: all 300ms ease-in-out;
 }
 
 .account__icon--active {
