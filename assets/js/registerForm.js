@@ -96,7 +96,7 @@ const setContentContact = () => {
     document.querySelector("#register-form-2").offsetLeft;
 
   registerForm.scroll({
-    left: scrollLeftOffset - 50,
+    left: scrollLeftOffset,
     behavior: "smooth",
   });
 };
