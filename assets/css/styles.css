@@ -89,6 +89,15 @@ body {
   padding-top: 90px;
 }
 
+.canvas__lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 98;
+  pointer-events: none;
+  padding-top: 90px;
+}
+
 .layout::after {
   position: absolute;
   margin-top: 90px;
@@ -1171,6 +1180,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  z-index: 99;
 }
 
 .footer__container {

@@ -1,4 +1,6 @@
+//Variables y constantes
 const backgroundCanvas = document.querySelector("#background-canvas");
+const linesCanvas = document.querySelector("#lines-canvas");
 const pointsQuantity = backgroundCanvas.dataset["points"];
 const documentHeight = Math.max(
   document.body.scrollHeight,
@@ -7,20 +9,29 @@ const documentHeight = Math.max(
   document.documentElement.scrollHeight,
   document.documentElement.offsetHeight
 );
+
+//Asignacion de contextos y canvas
 let context = backgroundCanvas.getContext("2d");
+let linesContext = linesCanvas.getContext("2d");
 let mouseX = 0;
 let mouseY = 0;
 const pointsNumber = pointsQuantity;
 let points = [];
 let pointsOpacityDirection = [];
 let pointsGenerated = [];
-
-backgroundCanvas.width = window.innerWidth;
-backgroundCanvas.height = documentHeight;
-context.width = window.innerWidth;
-context.height = backgroundCanvas.height;
 backgroundCanvas.style.filter = "blur(5px)";
 
+//Tamaños del canvas y contextos
+backgroundCanvas.width = window.innerWidth;
+backgroundCanvas.height = documentHeight;
+linesCanvas.width = window.innerWidth;
+linesCanvas.height = documentHeight;
+context.width = window.innerWidth;
+context.height = backgroundCanvas.height;
+linesContext.width = window.innerWidth;
+linesContext.height = backgroundCanvas.height;
+
+//Inicialización de los puntos
 const initializePoints = () => {
   for (let i = 0; i < pointsNumber; i++) {
     pointsOpacityDirection.push(false);
@@ -53,14 +64,13 @@ const initializePoints = () => {
   }
 };
 
+//Dibujar los puntos y líneas
 const drawPoints = () => {
   context.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
-
+  linesContext.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
   for (let i = 0; i < pointsNumber; i++) {
     context.beginPath();
     let point = points[i];
-
-    context.filter = "blur(5px)";
 
     context.arc(point.pointX, point.pointY, point.pointSize, 0, 2 * Math.PI);
     point.pointX += point.pointXVel;
@@ -91,21 +101,21 @@ const drawPoints = () => {
 
     context.fillStyle = `rgba(${point.pointColor}, ${point.colorOpacity})`;
 
+    context.filter = "blur(5px)";
     context.fill();
-
     context.closePath();
 
     //Dibujamos las líneas de los nodos
-
-    context.lineWidth = 0.5;
-    context.strokeStyle = "#000000ec";
-    context.moveTo(point.pointX, point.pointY);
+    linesContext.beginPath();
+    linesContext.lineWidth = 0.8;
+    linesContext.strokeStyle = "#ffffff10";
+    linesContext.moveTo(point.pointX, point.pointY);
     if (i + 1 >= pointsNumber) {
-      context.lineTo(points[0].pointX, points[0].pointY);
-      context.stroke();
+      linesContext.lineTo(points[0].pointX, points[0].pointY);
+      linesContext.stroke();
     } else {
-      context.lineTo(points[i + 1].pointX, points[i + 1].pointY);
-      context.stroke();
+      linesContext.lineTo(points[i + 1].pointX, points[i + 1].pointY);
+      linesContext.stroke();
     }
   }
 
@@ -125,6 +135,7 @@ const drawPoints = () => {
   requestAnimationFrame(drawPoints);
 };
 
+//Listener del ratón
 document.addEventListener("mousemove", (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY + window.scrollY - 90;
@@ -138,9 +149,11 @@ document.addEventListener("mousemove", (e) => {
   }, 100);
 });
 
+//Función de llamada a la animación
 const canvasAnimation = () => {
   drawPoints();
 };
 
+//Llamada a funciones iniciales
 initializePoints();
 canvasAnimation();
