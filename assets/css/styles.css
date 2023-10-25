@@ -37,6 +37,7 @@ ul {
 }
 
 :root {
+  /* PRIMERA PRUEBA COLORES */
   --color-nodes: #000000ec;
   --color-primary: #151424;
   --color-secondary: #137681;
@@ -57,6 +58,26 @@ ul {
   --color-error: red;
   --color-error-a: rgba(255, 0, 0, 0.55);
   --color-input-focus: #6a64d3d0;
+  --color-bingo-cell: #dae2f7;
+  --color-bingo-text: #3073cd;
+  --color-circle-inside: #6a6877;
+  /* SEGUNDA PRUEBA DE COLORES */
+  --color-nodes: #000000ec;
+  --color-primary: #151424;
+  --color-secondary: #106ad2;
+  --color-secondary-a: #106ad265;
+  --color-terciary: #a32cdf;
+  --color-terciary-a: #a32cdf65;
+  --color-terciary-1: #93278f;
+  --color-terciary-2: #2d037c;
+  --color-terciary-3: #302794;
+  --color-text: #eaeaf6;
+  --color-subtitle: #d5d5e0;
+  --color-description: rgb(95, 95, 95);
+  --bg-container: #eaeaf665;
+  --color-error: red;
+  --color-error-a: rgba(255, 0, 0, 0.55);
+  --color-input-focus: #4218b8d0;
   --color-bingo-cell: #dae2f7;
   --color-bingo-text: #3073cd;
   --color-circle-inside: #6a6877;
