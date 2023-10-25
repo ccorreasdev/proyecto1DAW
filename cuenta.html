@@ -1,439 +1,739 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/js/pswSwitch.js"></script>
+    <script defer src="assets/js/scrollAccount.js"></script>
+    <script defer src="assets/js/registerForm.js"></script>
+    <script defer src="assets/js/backgroundCanvas.js"></script>
+    <title>Nebula</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <script defer src="assets/js/pswSwitch.js"></script>
-  <script defer src="assets/js/scrollAccount.js"></script>
-  <script defer src="assets/js/registerForm.js"></script>
-  <script defer src="assets/js/backgroundCanvas.js"></script>
-  <title>Nebula</title>
-</head>
+  <body>
+    <main class="layout">
+      <canvas
+        data-points="10"
+        class="canvas__background"
+        id="background-canvas"
+      ></canvas>
+      <canvas class="canvas__lines" id="lines-canvas"></canvas>
+      <div class="layout__light"></div>
+      <!-- NAVBAR -->
+      <nav class="layout__nav">
+        <div class="nav__container">
+          <div class="nav__logo"></div>
+          <ul class="nav__list">
+            <li class="nav__item nav__item--active">
+              <a class="nav__link" href="index.html"
+                >Inicio<svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                >
+                  <path
+                    d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"
+                  /></svg
+              ></a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="coches.html"
+                >Coches
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                >
+                  <path
+                    d="M640 320V368C640 385.7 625.7 400 608 400H574.7C567.1 445.4 527.6 480 480 480C432.4 480 392.9 445.4 385.3 400H254.7C247.1 445.4 207.6 480 160 480C112.4 480 72.94 445.4 65.33 400H32C14.33 400 0 385.7 0 368V256C0 228.9 16.81 205.8 40.56 196.4L82.2 92.35C96.78 55.9 132.1 32 171.3 32H353.2C382.4 32 409.1 45.26 428.2 68.03L528.2 193C591.2 200.1 640 254.8 640 319.1V320zM171.3 96C158.2 96 146.5 103.1 141.6 116.1L111.3 192H224V96H171.3zM272 192H445.4L378.2 108C372.2 100.4 362.1 96 353.2 96H272V192zM525.3 400C527 394.1 528 389.6 528 384C528 357.5 506.5 336 480 336C453.5 336 432 357.5 432 384C432 389.6 432.1 394.1 434.7 400C441.3 418.6 459.1 432 480 432C500.9 432 518.7 418.6 525.3 400zM205.3 400C207 394.1 208 389.6 208 384C208 357.5 186.5 336 160 336C133.5 336 112 357.5 112 384C112 389.6 112.1 394.1 114.7 400C121.3 418.6 139.1 432 160 432C180.9 432 198.7 418.6 205.3 400z"
+                  /></svg
+              ></a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="categorias.html"
+                >Categorías
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM64 160H128V96H64V160zM448 96H192V160H448V96zM64 288H128V224H64V288zM448 224H192V288H448V224zM64 416H128V352H64V416zM448 352H192V416H448V352z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="concurso.html"
+                >Concurso
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    d="M384 32H64C28.62 32 0 60.62 0 96v320c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V96C448 60.62 419.4 32 384 32zM128 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S145.6 384 128 384zM128 288C110.4 288 96 273.6 96 256s14.38-32 32-32s32 14.38 32 32S145.6 288 128 288zM128 192C110.4 192 96 177.6 96 160s14.38-32 32-32s32 14.38 32 32S145.6 192 128 192zM320 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 384 320 384zM320 288c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 288 320 288zM320 192c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 192 320 192z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="informacion.html"
+                >Información
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"
+                  /></svg
+              ></a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="sobre-nosotros.html"
+                >Nosotros
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                >
+                  <path
+                    d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="contacto.html"
+                >Contacto
 
-<body>
-  <main class="layout">
-    <canvas data-points="10" class="canvas__background" id="background-canvas"></canvas>
-    <canvas class="canvas__lines" id="lines-canvas"></canvas>
-    <div class="layout__light"></div>
-    <!-- NAVBAR -->
-    <nav class="layout__nav">
-      <div class="nav__container">
-        <div class="nav__logo"></div>
-        <ul class="nav__list">
-          <li class="nav__item nav__item--active">
-            <a class="nav__link" href="index.html">Inicio<svg class="nav__icon" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 576 512">
-                <path
-                  d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z" />
-              </svg></a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="coches.html">Coches
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                <path
-                  d="M640 320V368C640 385.7 625.7 400 608 400H574.7C567.1 445.4 527.6 480 480 480C432.4 480 392.9 445.4 385.3 400H254.7C247.1 445.4 207.6 480 160 480C112.4 480 72.94 445.4 65.33 400H32C14.33 400 0 385.7 0 368V256C0 228.9 16.81 205.8 40.56 196.4L82.2 92.35C96.78 55.9 132.1 32 171.3 32H353.2C382.4 32 409.1 45.26 428.2 68.03L528.2 193C591.2 200.1 640 254.8 640 319.1V320zM171.3 96C158.2 96 146.5 103.1 141.6 116.1L111.3 192H224V96H171.3zM272 192H445.4L378.2 108C372.2 100.4 362.1 96 353.2 96H272V192zM525.3 400C527 394.1 528 389.6 528 384C528 357.5 506.5 336 480 336C453.5 336 432 357.5 432 384C432 389.6 432.1 394.1 434.7 400C441.3 418.6 459.1 432 480 432C500.9 432 518.7 418.6 525.3 400zM205.3 400C207 394.1 208 389.6 208 384C208 357.5 186.5 336 160 336C133.5 336 112 357.5 112 384C112 389.6 112.1 394.1 114.7 400C121.3 418.6 139.1 432 160 432C180.9 432 198.7 418.6 205.3 400z" />
-              </svg></a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="categorias.html">Categorías
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path
-                  d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM64 160H128V96H64V160zM448 96H192V160H448V96zM64 288H128V224H64V288zM448 224H192V288H448V224zM64 416H128V352H64V416zM448 352H192V416H448V352z" />
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="concurso.html">Concurso
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <path
-                  d="M384 32H64C28.62 32 0 60.62 0 96v320c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V96C448 60.62 419.4 32 384 32zM128 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S145.6 384 128 384zM128 288C110.4 288 96 273.6 96 256s14.38-32 32-32s32 14.38 32 32S145.6 288 128 288zM128 192C110.4 192 96 177.6 96 160s14.38-32 32-32s32 14.38 32 32S145.6 192 128 192zM320 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 384 320 384zM320 288c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 288 320 288zM320 192c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 192 320 192z" />
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="informacion.html">Información
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path
-                  d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z" />
-              </svg></a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="sobre-nosotros.html">Nosotros
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path
-                  d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z" />
-              </svg>
-            </a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="contacto.html">Contacto
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
 
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path
-                  d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a class="nav__link" href="cuenta.html">Cuenta
-              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <path
-                  d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" />
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- ACCOUNT -->
-    <section class="layout__account">
-      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="parallax">
-          <use xlink:href="#gentle-wave" x="48" y="0" fill=" #6964d3" />
-          <use xlink:href="#gentle-wave" x="48" y="3" fill="#137681" />
-          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-          <use xlink:href="#gentle-wave" x="48" y="7" fill="#eaeaf6" />
-        </g>
-      </svg>
-      <div class="account__container">
-        <div class="account__content">
-          <!-- LOGIN -->
-          <article class="account__article-login">
-            <form class="account__form" action="">
-              <div class="account__register__title-login"> <button id="btnRegisterScroll" class="account__btn-option">
-                  ¿No tienes cuenta? Regístrate
-                </button>
-                <h2 class="account__title">Iniciar sesión</h2>
-              </div>
-              <div class="account__login-container">
-                <div class="account__field">
-
-                  <input placeholder="Usuario" class="account__input" type="text" />
-                  <div class="account__icon-container"> <svg class="account__icon account__icon--active"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                      <path
-                        d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" />
-                    </svg></div>
-                  <span class="account__label">Usuario</span>
-                </div>
-                <div class="account__field">
-
-                  <input id="account-login-psw" placeholder="Contraseña" class="account__input" type="password" />
-                  <div class="account__icon-container">
-                    <svg id="psw-on" class="account__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                      <path
-                        d="M279.6 160.4C282.4 160.1 285.2 160 288 160C341 160 384 202.1 384 256C384 309 341 352 288 352C234.1 352 192 309 192 256C192 253.2 192.1 250.4 192.4 247.6C201.7 252.1 212.5 256 224 256C259.3 256 288 227.3 288 192C288 180.5 284.1 169.7 279.6 160.4zM480.6 112.6C527.4 156 558.7 207.1 573.5 243.7C576.8 251.6 576.8 260.4 573.5 268.3C558.7 304 527.4 355.1 480.6 399.4C433.5 443.2 368.8 480 288 480C207.2 480 142.5 443.2 95.42 399.4C48.62 355.1 17.34 304 2.461 268.3C-.8205 260.4-.8205 251.6 2.461 243.7C17.34 207.1 48.62 156 95.42 112.6C142.5 68.84 207.2 32 288 32C368.8 32 433.5 68.84 480.6 112.6V112.6zM288 112C208.5 112 144 176.5 144 256C144 335.5 208.5 400 288 400C367.5 400 432 335.5 432 256C432 176.5 367.5 112 288 112z" />
-                    </svg>
-                    <svg id="psw-off" class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 640 512">
-                      <path
-                        d="M150.7 92.77C195 58.27 251.8 32 320 32C400.8 32 465.5 68.84 512.6 112.6C559.4 156 590.7 207.1 605.5 243.7C608.8 251.6 608.8 260.4 605.5 268.3C592.1 300.6 565.2 346.1 525.6 386.7L630.8 469.1C641.2 477.3 643.1 492.4 634.9 502.8C626.7 513.2 611.6 515.1 601.2 506.9L9.196 42.89C-1.236 34.71-3.065 19.63 5.112 9.196C13.29-1.236 28.37-3.065 38.81 5.112L150.7 92.77zM223.1 149.5L313.4 220.3C317.6 211.8 320 202.2 320 191.1C320 180.5 316.1 169.7 311.6 160.4C314.4 160.1 317.2 159.1 320 159.1C373 159.1 416 202.1 416 255.1C416 269.7 413.1 282.7 407.1 294.5L446.6 324.7C457.7 304.3 464 280.9 464 255.1C464 176.5 399.5 111.1 320 111.1C282.7 111.1 248.6 126.2 223.1 149.5zM320 480C239.2 480 174.5 443.2 127.4 399.4C80.62 355.1 49.34 304 34.46 268.3C31.18 260.4 31.18 251.6 34.46 243.7C44 220.8 60.29 191.2 83.09 161.5L177.4 235.8C176.5 242.4 176 249.1 176 255.1C176 335.5 240.5 400 320 400C338.7 400 356.6 396.4 373 389.9L446.2 447.5C409.9 467.1 367.8 480 320 480H320z" />
-                    </svg>
-                  </div>
-                  <span class="account__label">Contraseña</span>
-                </div>
-                <button type="submit" class="account__btn account__btn-login">
-                  Iniciar sesión
-                </button>
-              </div>
-            </form>
-          </article>
-          <!-- REGISTER -->
-          <article class="account__article-register">
-            <div class="account__form">
-              <div class="account__register__title-login"> <button id="btnLoginScroll" class="account__btn-option">
-                  Inicia sesión con tu cuenta
-                </button>
-                <h2 class="account__title">Registrarse</h2>
-              </div>
-              <div class="register__path">
-                <div class="path__line">
-                  <div id="register-personal" class="path__option path__option--active">Personal</div>
-                </div>
-                <div class="path__line">
-                  <div id="register-contact" class="path__option">Contacto</div>
-                </div>
-                <div id="register-direction" class="path__option">Dirección</div>
-              </div>
-              <div id="register-form" class="account__register-forms">
-                <div id="register-form-1" class="register-forms-child">
-                  <div class="account__register-container ">
-
-                    <div class="register__field register__grid-one">
-
-
-                      <input id="register-name" name="register-name" placeholder="Nombre" class="account__input"
-                        type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 448 512">
-                          <path
-                            d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" />
-                        </svg>
-                      </div>
-                      <span class="account__label">Nombre</span>
-                    </div>
-                    <div class="register__field register__grid-two">
-
-                      <input id="register-surname" name="register-surname" placeholder="Apellidos"
-                        class="account__input" type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 448 512">
-                          <path
-                            d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" />
-                        </svg>
-                      </div>
-                      <span class="account__label">Apellidos</span>
-
-                    </div>
-                    <div class="register__field register__grid-three">
-
-
-                      <input id="register-dni" name="register-dni" placeholder="DNI" class="account__input"
-                        type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 576 512">
-                          <path
-                            d="M208 256c35.35 0 64-28.65 64-64c0-35.35-28.65-64-64-64s-64 28.65-64 64C144 227.3 172.7 256 208 256zM464 232h-96c-13.25 0-24 10.75-24 24s10.75 24 24 24h96c13.25 0 24-10.75 24-24S477.3 232 464 232zM240 288h-64C131.8 288 96 323.8 96 368C96 376.8 103.2 384 112 384h192c8.836 0 16-7.164 16-16C320 323.8 284.2 288 240 288zM464 152h-96c-13.25 0-24 10.75-24 24s10.75 24 24 24h96c13.25 0 24-10.75 24-24S477.3 152 464 152zM512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM528 416c0 8.822-7.178 16-16 16H64c-8.822 0-16-7.178-16-16V96c0-8.822 7.178-16 16-16h448c8.822 0 16 7.178 16 16V416z" />
-                        </svg>
-                      </div>
-                      <span class="account__label">DNI</span>
-                    </div>
-                    <div class="register__field register__grid-four">
-
-                      <input id="register-birthday" name="register-birthday" class="account__input date__input"
-                        type="date" min="1900-01-01" value="" required />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 448 512">
-                          <path
-                            d="M352 111.1c22.09 0 40-17.88 40-39.97S352 0 352 0s-40 49.91-40 72S329.9 111.1 352 111.1zM224 111.1c22.09 0 40-17.88 40-39.97S224 0 224 0S184 49.91 184 72S201.9 111.1 224 111.1zM383.1 223.1L384 160c0-8.836-7.164-16-16-16h-32C327.2 144 320 151.2 320 160v64h-64V160c0-8.836-7.164-16-16-16h-32C199.2 144 192 151.2 192 160v64H128V160c0-8.836-7.164-16-16-16h-32C71.16 144 64 151.2 64 160v63.97c-35.35 0-64 28.65-64 63.1v68.7c9.814 6.102 21.39 11.33 32 11.33c20.64 0 45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C114.1 348.3 139.4 367.1 160 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C242.1 348.3 267.4 367.1 288 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C370.1 348.3 395.4 367.1 416 367.1c10.61 0 22.19-5.227 32-11.33V287.1C448 252.6 419.3 223.1 383.1 223.1zM352 373.3c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66c-11.27 0-22.09-3.121-32-7.377v87.38C0 497.7 14.33 512 32 512h384c17.67 0 32-14.33 32-32v-87.38c-9.91 4.256-20.73 7.377-32 7.377C390 399.1 365.8 384.3 352 373.3zM96 111.1c22.09 0 40-17.88 40-39.97S96 0 96 0S56 49.91 56 72S73.91 111.1 96 111.1z" />
-                        </svg>
-                      </div>
-                      <span class="account__label-date">Fecha nacimiento</span>
-                    </div>
-                    <div class="register__field register__grid-six">
-                      <button id="personal-next" class="account__btn ">Siguiente</button>
-                    </div>
-                  </div>
-                </div>
-                <div id="register-form-2" class="register-forms-child">
-                  <div class="account__register-container">
-                    <div class="register__field register__grid-one">
-
-                      <input id="register-email" name="register-email" placeholder="Email" class="account__input"
-                        type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512">
-                          <path
-                            d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
-                        </svg>
-                      </div>
-                      <span class="account__label">Email</span>
-                    </div>
-                    <div class="register__field register__grid-two">
-
-                      <input id="register-phone" name="register-phone" placeholder="Teléfono" class="account__input"
-                        type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512">
-                          <path
-                            d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z" />
-                        </svg>
-                      </div>
-                      <span class="account__label">Teléfono</span>
-                    </div>
-                    <div class="register__field register__grid-six">
-                      <button id="contact-next" class="account__btn">Siguiente</button>
-                    </div>
-                    <div class="register__field register__grid-five">
-                      <button id="contact-previous" class="account__btn ">Anterior</button>
-                    </div>
-                  </div>
-                </div>
-                <div id="register-form-3" class="register-forms-child">
-                  <div class="account__register-container">
-                    <div class="register__field register__grid-one">
-
-                      <input id="register-via" name="register-via" placeholder="Vía" class="account__input" list="via"
-                        type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 576 512">
-                          <path
-                            d="M256 96C256 113.7 270.3 128 288 128C305.7 128 320 113.7 320 96V32H394.8C421.9 32 446 49.08 455.1 74.63L572.9 407.2C574.9 413 576 419.2 576 425.4C576 455.5 551.5 480 521.4 480H320V416C320 398.3 305.7 384 288 384C270.3 384 256 398.3 256 416V480H54.61C24.45 480 0 455.5 0 425.4C0 419.2 1.06 413 3.133 407.2L120.9 74.63C129.1 49.08 154.1 32 181.2 32H255.1L256 96zM320 224C320 206.3 305.7 192 288 192C270.3 192 256 206.3 256 224V288C256 305.7 270.3 320 288 320C305.7 320 320 305.7 320 288V224z" />
-                        </svg>
-                      </div>
-                      <datalist id="via">
-                        <option value="Calle"></option>
-                        <option value="Avenida"></option>
-                        <option value="Bulevar"></option>
-                        <option value="Camino"></option>
-                        <option value="Carretera"></option>
-                        <option value="Plaza"></option>
-                        <option value="Ronda"></option>
-                        <option value="Travesía"></option>
-                      </datalist>
-                      <span class="account__label">Vía</span>
-                    </div>
-                    <div class="register__field register__grid-two">
-
-                      <input id="register-dir" name="register-dir" placeholder="Dirección" class="account__input"
-                        type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 576 512">
-                          <path
-                            d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z" />
-                        </svg>
-                      </div>
-                      <span class="account__label">Dirección</span>
-                    </div>
-                    <div class="register__field register__grid-three">
-
-                      <input id="register-city" name="register-city" placeholder="Población" class="account__input"
-                        type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512">
-                          <path
-                            d="M240.1 4.216C249.1-1.405 262-1.405 271.9 4.216L443.6 102.4L447.1 104V104.9L495.9 132.2C508.5 139.4 514.6 154.2 510.9 168.2C507.2 182.2 494.5 192 479.1 192H31.1C17.49 192 4.795 182.2 1.071 168.2C-2.653 154.2 3.524 139.4 16.12 132.2L63.1 104.9V104L68.37 102.4L240.1 4.216zM64 224H128V416H168V224H232V416H280V224H344V416H384V224H448V420.3C448.6 420.6 449.2 420.1 449.8 421.4L497.8 453.4C509.5 461.2 514.7 475.8 510.6 489.3C506.5 502.8 494.1 512 480 512H32C17.9 512 5.46 502.8 1.373 489.3C-2.713 475.8 2.517 461.2 14.25 453.4L62.25 421.4C62.82 420.1 63.41 420.6 64 420.3V224z" />
-                        </svg>
-                      </div>
-                      <span class="account__label">Población</span>
-                    </div>
-                    <div class="register__field register__grid-four">
-
-                      <input id="register-province" name="register-province" placeholder="Provincia"
-                        class="account__input" type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512">
-                          <path
-                            d="M352 0C360.8 0 368 7.164 368 16V80C368 88.84 360.8 96 352 96H272V128H464C481.7 128 496 142.3 496 160C496 177.7 481.7 192 464 192H47.1C30.33 192 15.1 177.7 15.1 160C15.1 142.3 30.33 128 47.1 128H239.1V16C239.1 7.164 247.2 0 255.1 0H352zM63.1 224H127.1V416H167.1V224H231.1V416H280V224H344V416H384V224H448V420.3C448.6 420.6 449.2 420.1 449.8 421.4L497.8 453.4C509.5 461.2 514.7 475.8 510.6 489.3C506.5 502.8 494.1 512 480 512H31.1C17.9 512 5.458 502.8 1.372 489.3C-2.715 475.8 2.515 461.2 14.25 453.4L62.25 421.4C62.82 420.1 63.4 420.6 63.1 420.3V224z" />
-                        </svg>
-                      </div>
-                      <span class="account__label">Provincia</span>
-                    </div>
-                    <div class="register__field register__grid-five">
-
-                      <input id="register-postal" name="register-postal" placeholder="Código postal"
-                        class="account__input" type="text" />
-                      <div class="account__icon-container">
-                        <svg class="account__icon account__icon--active" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512">
-                          <path
-                            d="M256 417.1c-16.38 0-32.88-4.1-46.88-15.12L0 250.9v213.1C0 490.5 21.5 512 48 512h416c26.5 0 48-21.5 48-47.1V250.9l-209.1 151.1C288.9 412 272.4 417.1 256 417.1zM493.6 163C484.8 156 476.4 149.5 464 140.1v-44.12c0-26.5-21.5-48-48-48l-77.5 .0016c-3.125-2.25-5.875-4.25-9.125-6.5C312.6 29.13 279.3-.3732 256 .0018C232.8-.3732 199.4 29.13 182.6 41.5c-3.25 2.25-6 4.25-9.125 6.5L96 48c-26.5 0-48 21.5-48 48v44.12C35.63 149.5 27.25 156 18.38 163C6.75 172 0 186 0 200.8v10.62l96 69.37V96h320v184.7l96-69.37V200.8C512 186 505.3 172 493.6 163zM176 255.1h160c8.836 0 16-7.164 16-15.1c0-8.838-7.164-16-16-16h-160c-8.836 0-16 7.162-16 16C160 248.8 167.2 255.1 176 255.1zM176 191.1h160c8.836 0 16-7.164 16-16c0-8.838-7.164-15.1-16-15.1h-160c-8.836 0-16 7.162-16 15.1C160 184.8 167.2 191.1 176 191.1z" />
-                        </svg>
-                      </div>
-                      <span class="account__label">Código postal</span>
-                    </div>
-                    <div class="register__field register__grid-seven">
-                      <button id="direction-previous" class="account__btn ">Anterior</button>
-                    </div>
-                    <div class="register__field register__grid-eight">
-                      <button id="register-form-submit" class="account__btn ">Registrar cuenta</button>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-
-            </div>
-          </article>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="cuenta.html"
+                >Cuenta
+                <svg
+                  class="nav__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
-    </section>
-    <!-- FOOTER -->
-    <footer class="layout__footer">
-      <section class="footer__container">
-        <article class="footer__left">
-          <div class="footer__title">Nebula España</div>
-          <div class="footer__item">
-            Domicilio social: Avda. de Bruselas 30 28108 Alcobendas, Madrid
-          </div>
-          <div class="footer__item">Teléfono: 900 100 100</div>
-          <div class="footer__item">
-            Correo electrónico: atencionclientes@nebula.com
-          </div>
-          <div class="footer__item">
-            Horario apertura: Lunes-Viernes 9:00 a 21:00
-          </div>
-        </article>
-        <article class="footer__right">
-          <div class="footer__title">Navegación</div>
-          <div class="footer__right-container">
-            <div class="footer__right-content">
-              <ul class="footer_nav">
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="index.html">Inicio</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="coches.html">Coches</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="categorias.html">Categorias</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="concurso.html">Concurso</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer__right-content">
-              <ul class="footer_nav">
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="informacion.html">Información</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="nosotros.html">Nosotros</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="contacto.html">Contacto</a>
-                </li>
-                <li class="footer__nav-item">
-                  <a class="footer__nav-link" href="cuenta.html">Cuenta</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-      </section>
-      <section class="footer__bottom">
-        <div class="canvas__configuration">
-          <div class="canvas__menu">
-            <div class="canvas__menu-points">
-              <div class="canvas__menu-label">Puntos</div>
-              <input type="range" id="slider-points" min="0" max="100" step="5" value="50">
-            </div>
-            <div class="canvas__menu-velocity">
-              <div class="canvas__menu-label">Velocidad</div>
-              <input type="range" id="slider-velocity" min="0" max="100" step="5" value="5">
-            </div>
-          </div>
-          <svg id="canvas__configuration" class="canvas__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      </nav>
+      <!-- ACCOUNT -->
+      <section class="layout__account">
+        <svg
+          class="waves"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+          shape-rendering="auto"
+        >
+          <defs>
             <path
-              d="M495.9 166.6C499.2 175.2 496.4 184.9 489.6 191.2L446.3 230.6C447.4 238.9 448 247.4 448 256C448 264.6 447.4 273.1 446.3 281.4L489.6 320.8C496.4 327.1 499.2 336.8 495.9 345.4C491.5 357.3 486.2 368.8 480.2 379.7L475.5 387.8C468.9 398.8 461.5 409.2 453.4 419.1C447.4 426.2 437.7 428.7 428.9 425.9L373.2 408.1C359.8 418.4 344.1 427 329.2 433.6L316.7 490.7C314.7 499.7 307.7 506.1 298.5 508.5C284.7 510.8 270.5 512 255.1 512C241.5 512 227.3 510.8 213.5 508.5C204.3 506.1 197.3 499.7 195.3 490.7L182.8 433.6C167 427 152.2 418.4 138.8 408.1L83.14 425.9C74.3 428.7 64.55 426.2 58.63 419.1C50.52 409.2 43.12 398.8 36.52 387.8L31.84 379.7C25.77 368.8 20.49 357.3 16.06 345.4C12.82 336.8 15.55 327.1 22.41 320.8L65.67 281.4C64.57 273.1 64 264.6 64 256C64 247.4 64.57 238.9 65.67 230.6L22.41 191.2C15.55 184.9 12.82 175.3 16.06 166.6C20.49 154.7 25.78 143.2 31.84 132.3L36.51 124.2C43.12 113.2 50.52 102.8 58.63 92.95C64.55 85.8 74.3 83.32 83.14 86.14L138.8 103.9C152.2 93.56 167 84.96 182.8 78.43L195.3 21.33C197.3 12.25 204.3 5.04 213.5 3.51C227.3 1.201 241.5 0 256 0C270.5 0 284.7 1.201 298.5 3.51C307.7 5.04 314.7 12.25 316.7 21.33L329.2 78.43C344.1 84.96 359.8 93.56 373.2 103.9L428.9 86.14C437.7 83.32 447.4 85.8 453.4 92.95C461.5 102.8 468.9 113.2 475.5 124.2L480.2 132.3C486.2 143.2 491.5 154.7 495.9 166.6V166.6zM256 336C300.2 336 336 300.2 336 255.1C336 211.8 300.2 175.1 256 175.1C211.8 175.1 176 211.8 176 255.1C176 300.2 211.8 336 256 336z" />
-          </svg>
+              id="gentle-wave"
+              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+            />
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill=" #6964d3" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="#137681" />
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="5"
+              fill="rgba(255,255,255,0.3)"
+            />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#eaeaf6" />
+          </g>
+        </svg>
+        <div class="account__container">
+          <div class="account__content">
+            <!-- LOGIN -->
+            <article class="account__article-login">
+              <form class="account__form" action="">
+                <div class="account__register__title-login">
+                  <button id="btnRegisterScroll" class="account__btn-option">
+                    Registrar nueva cuenta
+                    <svg
+                      class="account__icon account__icon--active account__icon--right"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 512"
+                    >
+                      <path
+                        d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z"
+                      />
+                    </svg>
+                  </button>
+                  <h2 class="account__title">Iniciar sesión</h2>
+                </div>
+                <div class="account__login-container">
+                  <div class="account__field">
+                    <input
+                      placeholder="Usuario"
+                      class="account__input"
+                      type="text"
+                    />
+                    <div class="account__icon-container">
+                      <svg
+                        class="account__icon account__icon--active"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"
+                      >
+                        <path
+                          d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+                        />
+                      </svg>
+                    </div>
+                    <span class="account__label">Usuario</span>
+                  </div>
+                  <div class="account__field">
+                    <input
+                      id="account-login-psw"
+                      placeholder="Contraseña"
+                      class="account__input"
+                      type="password"
+                    />
+                    <div class="account__icon-container">
+                      <svg
+                        id="psw-on"
+                        class="account__icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 576 512"
+                      >
+                        <path
+                          d="M279.6 160.4C282.4 160.1 285.2 160 288 160C341 160 384 202.1 384 256C384 309 341 352 288 352C234.1 352 192 309 192 256C192 253.2 192.1 250.4 192.4 247.6C201.7 252.1 212.5 256 224 256C259.3 256 288 227.3 288 192C288 180.5 284.1 169.7 279.6 160.4zM480.6 112.6C527.4 156 558.7 207.1 573.5 243.7C576.8 251.6 576.8 260.4 573.5 268.3C558.7 304 527.4 355.1 480.6 399.4C433.5 443.2 368.8 480 288 480C207.2 480 142.5 443.2 95.42 399.4C48.62 355.1 17.34 304 2.461 268.3C-.8205 260.4-.8205 251.6 2.461 243.7C17.34 207.1 48.62 156 95.42 112.6C142.5 68.84 207.2 32 288 32C368.8 32 433.5 68.84 480.6 112.6V112.6zM288 112C208.5 112 144 176.5 144 256C144 335.5 208.5 400 288 400C367.5 400 432 335.5 432 256C432 176.5 367.5 112 288 112z"
+                        />
+                      </svg>
+                      <svg
+                        id="psw-off"
+                        class="account__icon account__icon--active"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 512"
+                      >
+                        <path
+                          d="M150.7 92.77C195 58.27 251.8 32 320 32C400.8 32 465.5 68.84 512.6 112.6C559.4 156 590.7 207.1 605.5 243.7C608.8 251.6 608.8 260.4 605.5 268.3C592.1 300.6 565.2 346.1 525.6 386.7L630.8 469.1C641.2 477.3 643.1 492.4 634.9 502.8C626.7 513.2 611.6 515.1 601.2 506.9L9.196 42.89C-1.236 34.71-3.065 19.63 5.112 9.196C13.29-1.236 28.37-3.065 38.81 5.112L150.7 92.77zM223.1 149.5L313.4 220.3C317.6 211.8 320 202.2 320 191.1C320 180.5 316.1 169.7 311.6 160.4C314.4 160.1 317.2 159.1 320 159.1C373 159.1 416 202.1 416 255.1C416 269.7 413.1 282.7 407.1 294.5L446.6 324.7C457.7 304.3 464 280.9 464 255.1C464 176.5 399.5 111.1 320 111.1C282.7 111.1 248.6 126.2 223.1 149.5zM320 480C239.2 480 174.5 443.2 127.4 399.4C80.62 355.1 49.34 304 34.46 268.3C31.18 260.4 31.18 251.6 34.46 243.7C44 220.8 60.29 191.2 83.09 161.5L177.4 235.8C176.5 242.4 176 249.1 176 255.1C176 335.5 240.5 400 320 400C338.7 400 356.6 396.4 373 389.9L446.2 447.5C409.9 467.1 367.8 480 320 480H320z"
+                        />
+                      </svg>
+                    </div>
+                    <span class="account__label">Contraseña</span>
+                  </div>
+                  <button type="submit" class="account__btn account__btn-login">
+                    Iniciar sesión
+                    <svg
+                      class="account__icon account__icon--active account__icon--right"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M96 480h64C177.7 480 192 465.7 192 448S177.7 416 160 416H96c-17.67 0-32-14.33-32-32V128c0-17.67 14.33-32 32-32h64C177.7 96 192 81.67 192 64S177.7 32 160 32H96C42.98 32 0 74.98 0 128v256C0 437 42.98 480 96 480zM504.8 238.5l-144.1-136c-6.975-6.578-17.2-8.375-26-4.594c-8.803 3.797-14.51 12.47-14.51 22.05l-.0918 72l-128-.001c-17.69 0-32.02 14.33-32.02 32v64c0 17.67 14.34 32 32.02 32l128 .001l.0918 71.1c0 9.578 5.707 18.25 14.51 22.05c8.803 3.781 19.03 1.984 26-4.594l144.1-136C514.4 264.4 514.4 247.6 504.8 238.5z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </article>
+            <!-- REGISTER -->
+            <article class="account__article-register">
+              <div class="account__form">
+                <div class="account__register__title-login">
+                  <button id="btnLoginScroll" class="account__btn-option">
+                    Iniciar sesión con cuenta
+                    <svg
+                      class="account__icon account__icon--active account__icon--right"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M96 480h64C177.7 480 192 465.7 192 448S177.7 416 160 416H96c-17.67 0-32-14.33-32-32V128c0-17.67 14.33-32 32-32h64C177.7 96 192 81.67 192 64S177.7 32 160 32H96C42.98 32 0 74.98 0 128v256C0 437 42.98 480 96 480zM504.8 238.5l-144.1-136c-6.975-6.578-17.2-8.375-26-4.594c-8.803 3.797-14.51 12.47-14.51 22.05l-.0918 72l-128-.001c-17.69 0-32.02 14.33-32.02 32v64c0 17.67 14.34 32 32.02 32l128 .001l.0918 71.1c0 9.578 5.707 18.25 14.51 22.05c8.803 3.781 19.03 1.984 26-4.594l144.1-136C514.4 264.4 514.4 247.6 504.8 238.5z"
+                      />
+                    </svg>
+                  </button>
+                  <h2 class="account__title">Registrarse</h2>
+                </div>
+                <div class="register__path">
+                  <div class="path__line">
+                    <div
+                      id="register-personal"
+                      class="path__option path__option--active"
+                    >
+                      Personal
+                    </div>
+                  </div>
+                  <div class="path__line">
+                    <div id="register-contact" class="path__option">
+                      Contacto
+                    </div>
+                  </div>
+                  <div id="register-direction" class="path__option">
+                    Dirección
+                  </div>
+                </div>
+                <div id="register-form" class="account__register-forms">
+                  <div id="register-form-1" class="register-forms-child">
+                    <div class="account__register-container">
+                      <div class="register__field register__grid-one">
+                        <input
+                          id="register-name"
+                          name="register-name"
+                          placeholder="Nombre"
+                          class="account__input"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"
+                          >
+                            <path
+                              d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label">Nombre</span>
+                      </div>
+                      <div class="register__field register__grid-two">
+                        <input
+                          id="register-surname"
+                          name="register-surname"
+                          placeholder="Apellidos"
+                          class="account__input"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"
+                          >
+                            <path
+                              d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label">Apellidos</span>
+                      </div>
+                      <div class="register__field register__grid-three">
+                        <input
+                          id="register-dni"
+                          name="register-dni"
+                          placeholder="DNI"
+                          class="account__input"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512"
+                          >
+                            <path
+                              d="M208 256c35.35 0 64-28.65 64-64c0-35.35-28.65-64-64-64s-64 28.65-64 64C144 227.3 172.7 256 208 256zM464 232h-96c-13.25 0-24 10.75-24 24s10.75 24 24 24h96c13.25 0 24-10.75 24-24S477.3 232 464 232zM240 288h-64C131.8 288 96 323.8 96 368C96 376.8 103.2 384 112 384h192c8.836 0 16-7.164 16-16C320 323.8 284.2 288 240 288zM464 152h-96c-13.25 0-24 10.75-24 24s10.75 24 24 24h96c13.25 0 24-10.75 24-24S477.3 152 464 152zM512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM528 416c0 8.822-7.178 16-16 16H64c-8.822 0-16-7.178-16-16V96c0-8.822 7.178-16 16-16h448c8.822 0 16 7.178 16 16V416z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label">DNI</span>
+                      </div>
+                      <div class="register__field register__grid-four">
+                        <input
+                          id="register-birthday"
+                          name="register-birthday"
+                          class="account__input date__input"
+                          type="date"
+                          min="1900-01-01"
+                          value=""
+                          required
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"
+                          >
+                            <path
+                              d="M352 111.1c22.09 0 40-17.88 40-39.97S352 0 352 0s-40 49.91-40 72S329.9 111.1 352 111.1zM224 111.1c22.09 0 40-17.88 40-39.97S224 0 224 0S184 49.91 184 72S201.9 111.1 224 111.1zM383.1 223.1L384 160c0-8.836-7.164-16-16-16h-32C327.2 144 320 151.2 320 160v64h-64V160c0-8.836-7.164-16-16-16h-32C199.2 144 192 151.2 192 160v64H128V160c0-8.836-7.164-16-16-16h-32C71.16 144 64 151.2 64 160v63.97c-35.35 0-64 28.65-64 63.1v68.7c9.814 6.102 21.39 11.33 32 11.33c20.64 0 45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C114.1 348.3 139.4 367.1 160 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C242.1 348.3 267.4 367.1 288 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C370.1 348.3 395.4 367.1 416 367.1c10.61 0 22.19-5.227 32-11.33V287.1C448 252.6 419.3 223.1 383.1 223.1zM352 373.3c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66c-11.27 0-22.09-3.121-32-7.377v87.38C0 497.7 14.33 512 32 512h384c17.67 0 32-14.33 32-32v-87.38c-9.91 4.256-20.73 7.377-32 7.377C390 399.1 365.8 384.3 352 373.3zM96 111.1c22.09 0 40-17.88 40-39.97S96 0 96 0S56 49.91 56 72S73.91 111.1 96 111.1z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label-date"
+                          >Fecha nacimiento</span
+                        >
+                      </div>
+                      <div class="register__field register__grid-six">
+                        <button id="personal-next" class="account__btn">
+                          Siguiente
+                          <svg
+                            class="account__icon account__icon--active account__icon--right"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 256 512"
+                          >
+                            <path
+                              d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="register-form-2" class="register-forms-child">
+                    <div class="account__register-container">
+                      <div class="register__field register__grid-one">
+                        <input
+                          id="register-email"
+                          name="register-email"
+                          placeholder="Email"
+                          class="account__input"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                          >
+                            <path
+                              d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label">Email</span>
+                      </div>
+                      <div class="register__field register__grid-two">
+                        <input
+                          id="register-phone"
+                          name="register-phone"
+                          placeholder="Teléfono"
+                          class="account__input"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                          >
+                            <path
+                              d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label">Teléfono</span>
+                      </div>
+                      <div class="register__field register__grid-six">
+                        <button id="contact-next" class="account__btn">
+                          Siguiente
+                          <svg
+                            class="account__icon account__icon--active account__icon--right"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 256 512"
+                          >
+                            <path
+                              d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="register__field register__grid-five">
+                        <button id="contact-previous" class="account__btn">
+                          Anterior
+                          <svg
+                            class="account__icon account__icon--active account__icon--left"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 256 512"
+                          >
+                            <path
+                              d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="register-form-3" class="register-forms-child">
+                    <div class="account__register-container">
+                      <div class="register__field register__grid-one">
+                        <input
+                          id="register-via"
+                          name="register-via"
+                          placeholder="Vía"
+                          class="account__input"
+                          list="via"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512"
+                          >
+                            <path
+                              d="M256 96C256 113.7 270.3 128 288 128C305.7 128 320 113.7 320 96V32H394.8C421.9 32 446 49.08 455.1 74.63L572.9 407.2C574.9 413 576 419.2 576 425.4C576 455.5 551.5 480 521.4 480H320V416C320 398.3 305.7 384 288 384C270.3 384 256 398.3 256 416V480H54.61C24.45 480 0 455.5 0 425.4C0 419.2 1.06 413 3.133 407.2L120.9 74.63C129.1 49.08 154.1 32 181.2 32H255.1L256 96zM320 224C320 206.3 305.7 192 288 192C270.3 192 256 206.3 256 224V288C256 305.7 270.3 320 288 320C305.7 320 320 305.7 320 288V224z"
+                            />
+                          </svg>
+                        </div>
+                        <datalist id="via">
+                          <option value="Calle"></option>
+                          <option value="Avenida"></option>
+                          <option value="Bulevar"></option>
+                          <option value="Camino"></option>
+                          <option value="Carretera"></option>
+                          <option value="Plaza"></option>
+                          <option value="Ronda"></option>
+                          <option value="Travesía"></option>
+                        </datalist>
+                        <span class="account__label">Vía</span>
+                      </div>
+                      <div class="register__field register__grid-two">
+                        <input
+                          id="register-dir"
+                          name="register-dir"
+                          placeholder="Dirección"
+                          class="account__input"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512"
+                          >
+                            <path
+                              d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label">Dirección</span>
+                      </div>
+                      <div class="register__field register__grid-three">
+                        <input
+                          id="register-city"
+                          name="register-city"
+                          placeholder="Población"
+                          class="account__input"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                          >
+                            <path
+                              d="M240.1 4.216C249.1-1.405 262-1.405 271.9 4.216L443.6 102.4L447.1 104V104.9L495.9 132.2C508.5 139.4 514.6 154.2 510.9 168.2C507.2 182.2 494.5 192 479.1 192H31.1C17.49 192 4.795 182.2 1.071 168.2C-2.653 154.2 3.524 139.4 16.12 132.2L63.1 104.9V104L68.37 102.4L240.1 4.216zM64 224H128V416H168V224H232V416H280V224H344V416H384V224H448V420.3C448.6 420.6 449.2 420.1 449.8 421.4L497.8 453.4C509.5 461.2 514.7 475.8 510.6 489.3C506.5 502.8 494.1 512 480 512H32C17.9 512 5.46 502.8 1.373 489.3C-2.713 475.8 2.517 461.2 14.25 453.4L62.25 421.4C62.82 420.1 63.41 420.6 64 420.3V224z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label">Población</span>
+                      </div>
+                      <div class="register__field register__grid-four">
+                        <input
+                          id="register-province"
+                          name="register-province"
+                          placeholder="Provincia"
+                          class="account__input"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                          >
+                            <path
+                              d="M352 0C360.8 0 368 7.164 368 16V80C368 88.84 360.8 96 352 96H272V128H464C481.7 128 496 142.3 496 160C496 177.7 481.7 192 464 192H47.1C30.33 192 15.1 177.7 15.1 160C15.1 142.3 30.33 128 47.1 128H239.1V16C239.1 7.164 247.2 0 255.1 0H352zM63.1 224H127.1V416H167.1V224H231.1V416H280V224H344V416H384V224H448V420.3C448.6 420.6 449.2 420.1 449.8 421.4L497.8 453.4C509.5 461.2 514.7 475.8 510.6 489.3C506.5 502.8 494.1 512 480 512H31.1C17.9 512 5.458 502.8 1.372 489.3C-2.715 475.8 2.515 461.2 14.25 453.4L62.25 421.4C62.82 420.1 63.4 420.6 63.1 420.3V224z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label">Provincia</span>
+                      </div>
+                      <div class="register__field register__grid-five">
+                        <input
+                          id="register-postal"
+                          name="register-postal"
+                          placeholder="Código postal"
+                          class="account__input"
+                          type="text"
+                        />
+                        <div class="account__icon-container">
+                          <svg
+                            class="account__icon account__icon--active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                          >
+                            <path
+                              d="M256 417.1c-16.38 0-32.88-4.1-46.88-15.12L0 250.9v213.1C0 490.5 21.5 512 48 512h416c26.5 0 48-21.5 48-47.1V250.9l-209.1 151.1C288.9 412 272.4 417.1 256 417.1zM493.6 163C484.8 156 476.4 149.5 464 140.1v-44.12c0-26.5-21.5-48-48-48l-77.5 .0016c-3.125-2.25-5.875-4.25-9.125-6.5C312.6 29.13 279.3-.3732 256 .0018C232.8-.3732 199.4 29.13 182.6 41.5c-3.25 2.25-6 4.25-9.125 6.5L96 48c-26.5 0-48 21.5-48 48v44.12C35.63 149.5 27.25 156 18.38 163C6.75 172 0 186 0 200.8v10.62l96 69.37V96h320v184.7l96-69.37V200.8C512 186 505.3 172 493.6 163zM176 255.1h160c8.836 0 16-7.164 16-15.1c0-8.838-7.164-16-16-16h-160c-8.836 0-16 7.162-16 16C160 248.8 167.2 255.1 176 255.1zM176 191.1h160c8.836 0 16-7.164 16-16c0-8.838-7.164-15.1-16-15.1h-160c-8.836 0-16 7.162-16 15.1C160 184.8 167.2 191.1 176 191.1z"
+                            />
+                          </svg>
+                        </div>
+                        <span class="account__label">Código postal</span>
+                      </div>
+                      <div class="register__field register__grid-seven">
+                        <button id="direction-previous" class="account__btn">
+                          Anterior
+                          <svg
+                            class="account__icon account__icon--active account__icon--left"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 256 512"
+                          >
+                            <path
+                              d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="register__field register__grid-eight">
+                        <button id="register-form-submit" class="account__btn">
+                          Registrar cuenta
+                          <svg
+                            class="account__icon account__icon--active account__icon--right"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 256 512"
+                          >
+                            <path
+                              d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-        &copy;2023 Nebula<a class="footer__link" href="https://www.ccorreas.com">ccorreas.com</a>
       </section>
-    </footer>
-  </main>
-</body>
-
+      <!-- FOOTER -->
+      <footer class="layout__footer">
+        <section class="footer__container">
+          <article class="footer__left">
+            <div class="footer__title">Nebula España</div>
+            <div class="footer__item">
+              Domicilio social: Avda. de Bruselas 30 28108 Alcobendas, Madrid
+            </div>
+            <div class="footer__item">Teléfono: 900 100 100</div>
+            <div class="footer__item">
+              Correo electrónico: atencionclientes@nebula.com
+            </div>
+            <div class="footer__item">
+              Horario apertura: Lunes-Viernes 9:00 a 21:00
+            </div>
+          </article>
+          <article class="footer__right">
+            <div class="footer__title">Navegación</div>
+            <div class="footer__right-container">
+              <div class="footer__right-content">
+                <ul class="footer_nav">
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="index.html">Inicio</a>
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="coches.html">Coches</a>
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="categorias.html"
+                      >Categorias</a
+                    >
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="concurso.html"
+                      >Concurso</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="footer__right-content">
+                <ul class="footer_nav">
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="informacion.html"
+                      >Información</a
+                    >
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="nosotros.html"
+                      >Nosotros</a
+                    >
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="contacto.html"
+                      >Contacto</a
+                    >
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="cuenta.html">Cuenta</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="footer__bottom">
+          <div class="canvas__configuration">
+            <div class="canvas__menu">
+              <div class="canvas__menu-points">
+                <div class="canvas__menu-label">Puntos</div>
+                <input
+                  type="range"
+                  id="slider-points"
+                  min="0"
+                  max="100"
+                  step="5"
+                  value="50"
+                />
+              </div>
+              <div class="canvas__menu-velocity">
+                <div class="canvas__menu-label">Velocidad</div>
+                <input
+                  type="range"
+                  id="slider-velocity"
+                  min="0"
+                  max="100"
+                  step="5"
+                  value="5"
+                />
+              </div>
+            </div>
+            <svg
+              id="canvas__configuration"
+              class="canvas__icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M495.9 166.6C499.2 175.2 496.4 184.9 489.6 191.2L446.3 230.6C447.4 238.9 448 247.4 448 256C448 264.6 447.4 273.1 446.3 281.4L489.6 320.8C496.4 327.1 499.2 336.8 495.9 345.4C491.5 357.3 486.2 368.8 480.2 379.7L475.5 387.8C468.9 398.8 461.5 409.2 453.4 419.1C447.4 426.2 437.7 428.7 428.9 425.9L373.2 408.1C359.8 418.4 344.1 427 329.2 433.6L316.7 490.7C314.7 499.7 307.7 506.1 298.5 508.5C284.7 510.8 270.5 512 255.1 512C241.5 512 227.3 510.8 213.5 508.5C204.3 506.1 197.3 499.7 195.3 490.7L182.8 433.6C167 427 152.2 418.4 138.8 408.1L83.14 425.9C74.3 428.7 64.55 426.2 58.63 419.1C50.52 409.2 43.12 398.8 36.52 387.8L31.84 379.7C25.77 368.8 20.49 357.3 16.06 345.4C12.82 336.8 15.55 327.1 22.41 320.8L65.67 281.4C64.57 273.1 64 264.6 64 256C64 247.4 64.57 238.9 65.67 230.6L22.41 191.2C15.55 184.9 12.82 175.3 16.06 166.6C20.49 154.7 25.78 143.2 31.84 132.3L36.51 124.2C43.12 113.2 50.52 102.8 58.63 92.95C64.55 85.8 74.3 83.32 83.14 86.14L138.8 103.9C152.2 93.56 167 84.96 182.8 78.43L195.3 21.33C197.3 12.25 204.3 5.04 213.5 3.51C227.3 1.201 241.5 0 256 0C270.5 0 284.7 1.201 298.5 3.51C307.7 5.04 314.7 12.25 316.7 21.33L329.2 78.43C344.1 84.96 359.8 93.56 373.2 103.9L428.9 86.14C437.7 83.32 447.4 85.8 453.4 92.95C461.5 102.8 468.9 113.2 475.5 124.2L480.2 132.3C486.2 143.2 491.5 154.7 495.9 166.6V166.6zM256 336C300.2 336 336 300.2 336 255.1C336 211.8 300.2 175.1 256 175.1C211.8 175.1 176 211.8 176 255.1C176 300.2 211.8 336 256 336z"
+              />
+            </svg>
+          </div>
+          &copy;2023 Nebula<a
+            class="footer__link"
+            href="https://www.ccorreas.com"
+            >ccorreas.com</a
+          >
+        </section>
+      </footer>
+    </main>
+  </body>
 </html>
