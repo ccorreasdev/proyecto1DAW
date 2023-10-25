@@ -61,10 +61,13 @@ const initializePoints = (velX = 1, velY = 1) => {
     const colorRandomSelector = Math.random() * 3;
 
     if (colorRandomSelector >= 2) {
-      pointColor = "19,118,129";
+      //Azul
+      pointColor = "16,106,210";
     } else if (colorRandomSelector >= 1) {
-      pointColor = "105,100,211";
+      //Morado
+      pointColor = "163,44,223";
     } else if (colorRandomSelector >= 0) {
+      //Blanco
       pointColor = "234,234,246";
     }
 
@@ -93,9 +96,9 @@ const addPoints = (posX, posY) => {
   const colorRandomSelector = Math.random() * 3;
 
   if (colorRandomSelector >= 2) {
-    pointColor = "19,118,129";
+    pointColor = "16,106,210";
   } else if (colorRandomSelector >= 1) {
-    pointColor = "105,100,211";
+    pointColor = "163,44,223";
   } else if (colorRandomSelector >= 0) {
     pointColor = "234,234,246";
   }
