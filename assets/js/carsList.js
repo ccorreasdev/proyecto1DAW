@@ -2,7 +2,7 @@ const carsList = document.querySelector(".cars__list");
 
 const carArray = [
   {
-    name: "Nebula XR2",
+    name: "Nebula UR",
     cv: 710,
     vmax: 325,
     acc: 2.1,
@@ -17,6 +17,33 @@ const carArray = [
     acc: 2.6,
     price: "105.000 €",
     img: "cc3.webp",
+  },
+
+  {
+    name: "Nebula LR",
+    cv: 420,
+    vmax: 235,
+    acc: 3.1,
+    price: "85.000 €",
+    img: "cc5.webp",
+  },
+
+  {
+    name: "Nebula TR",
+    cv: 450,
+    vmax: 220,
+    acc: 4.4,
+    price: "82.000 €",
+    img: "cc6.webp",
+  },
+
+  {
+    name: "Nebula LR",
+    cv: 450,
+    vmax: 220,
+    acc: 4.4,
+    price: "82.000 €",
+    img: "cc7.webp",
   },
 ];
 
