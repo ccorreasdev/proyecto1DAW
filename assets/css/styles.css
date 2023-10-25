@@ -68,8 +68,8 @@ ul {
   --color-secondary-a: #106ad265;
   --color-terciary: #a32cdf;
   --color-terciary-a: #a32cdf65;
-  --color-terciary-1: #93278f;
-  --color-terciary-2: #2d037c;
+  --color-terciary-1: #a32cdf;;
+  --color-terciary-2: #a32cdf;;
   --color-terciary-3: #302794;
   --color-text: #eaeaf6;
   --color-subtitle: #d5d5e0;
@@ -1031,6 +1031,10 @@ body {
 
 .contact__textarea:focus + .contact__icon-container .account__icon {
   scale: 1.2;
+}
+
+.contact__btn {
+  width: 520px;
 }
 
 .account__icon {
