@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/backgroundCanvas.js"></script>
+  <title>Nebula</title>
+</head>
+
+<body>
+  <main class="layout">
+    <canvas data-points="10" class="canvas__background" id="background-canvas"></canvas>
+    <canvas class="canvas__lines" id="lines-canvas"></canvas>
+    <div class="layout__light"></div>
+    <!-- NAVBAR -->
+    <nav class="layout__nav">
+      <div class="nav__container">
+        <div class="nav__logo"></div>
+        <ul class="nav__list">
+          <li class="nav__item nav__item--active">
+            <a class="nav__link" href="index.html">Inicio<svg class="nav__icon" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512">
+                <path
+                  d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z" />
+              </svg></a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="coches.html">Coches
+              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                <path
+                  d="M640 320V368C640 385.7 625.7 400 608 400H574.7C567.1 445.4 527.6 480 480 480C432.4 480 392.9 445.4 385.3 400H254.7C247.1 445.4 207.6 480 160 480C112.4 480 72.94 445.4 65.33 400H32C14.33 400 0 385.7 0 368V256C0 228.9 16.81 205.8 40.56 196.4L82.2 92.35C96.78 55.9 132.1 32 171.3 32H353.2C382.4 32 409.1 45.26 428.2 68.03L528.2 193C591.2 200.1 640 254.8 640 319.1V320zM171.3 96C158.2 96 146.5 103.1 141.6 116.1L111.3 192H224V96H171.3zM272 192H445.4L378.2 108C372.2 100.4 362.1 96 353.2 96H272V192zM525.3 400C527 394.1 528 389.6 528 384C528 357.5 506.5 336 480 336C453.5 336 432 357.5 432 384C432 389.6 432.1 394.1 434.7 400C441.3 418.6 459.1 432 480 432C500.9 432 518.7 418.6 525.3 400zM205.3 400C207 394.1 208 389.6 208 384C208 357.5 186.5 336 160 336C133.5 336 112 357.5 112 384C112 389.6 112.1 394.1 114.7 400C121.3 418.6 139.1 432 160 432C180.9 432 198.7 418.6 205.3 400z" />
+              </svg></a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="categorias.html">Categorías
+              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM64 160H128V96H64V160zM448 96H192V160H448V96zM64 288H128V224H64V288zM448 224H192V288H448V224zM64 416H128V352H64V416zM448 352H192V416H448V352z" />
+              </svg>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="concurso.html">Concurso
+              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M384 32H64C28.62 32 0 60.62 0 96v320c0 35.38 28.62 64 64 64h320c35.38 0 64-28.62 64-64V96C448 60.62 419.4 32 384 32zM128 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S145.6 384 128 384zM128 288C110.4 288 96 273.6 96 256s14.38-32 32-32s32 14.38 32 32S145.6 288 128 288zM128 192C110.4 192 96 177.6 96 160s14.38-32 32-32s32 14.38 32 32S145.6 192 128 192zM320 384c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 384 320 384zM320 288c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 288 320 288zM320 192c-17.62 0-32-14.38-32-32s14.38-32 32-32s32 14.38 32 32S337.6 192 320 192z" />
+              </svg>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="informacion.html">Información
+              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z" />
+              </svg></a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="sobre-nosotros.html">Nosotros
+              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path
+                  d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z" />
+              </svg>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="contacto.html">Contacto
+
+              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="cuenta.html">Cuenta
+              <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- ACCOUNT -->
+    <section class="layout__information">
+      <div class="page__title-container">
+        <div class="page__title-text">
+          <h2 class="page__title">NOSOTROS</h2>
+        </div>
+      </div>
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="#a32cdf" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="#106ad2" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="#3073cd" />
+        </g>
+      </svg>
+      <!-- INFORMACION -->
+      <div class="information__container">
+        <div class="information__content">
+          <div class="information__document">
+            <p class="information__text">
+              Lea atentamente los siguientes Términos y Condiciones de Uso
+              antes de utilizar nuestra tienda web. Al acceder y utilizar este
+              sitio, usted acepta cumplir con los siguientes términos y
+              condiciones:
+            </p>
+
+            <h3 class="information__point">
+              <span class="information__number">1. </span>Derechos de uso de
+              la web
+            </h3>
+            <p class="information__text">
+              <span class="information__subpoint"><span class="information__subpoint__number">1.1. </span>Uso
+                Aceptable: </span>Este sitio web está destinado para su uso personal y no
+              comercial. Usted tiene el derecho de acceder, explorar y
+              utilizar la información y servicios proporcionados en el sitio
+              de acuerdo con estos términos y condiciones.
+            </p>
+
+            <p class="information__text">
+              <span class="information__subpoint"><span class="information__subpoint__number">1.2. </span>
+                Propiedad Intelectual:
+              </span>
+              Todo el contenido de esta tienda web, incluyendo textos,
+              imágenes, logotipos y diseños, está protegido por derechos de
+              autor y otros derechos de propiedad intelectual. No está
+              permitida la reproducción, distribución o modificación del
+              contenido sin el consentimiento por escrito de la empresa.
+            </p>
+
+            <h3 class="information__point">
+              <span class="information__number">2. </span>Política de
+              privacidad de la web, incluido el uso de cookies
+            </h3>
+            <p class="information__text">
+              <span class="information__subpoint"><span class="information__subpoint__number">2.1. </span>
+                Privacidad: </span>Valoramos su privacidad y protegemos sus datos personales de
+              acuerdo con nuestra Política de Privacidad. Al utilizar este
+              sitio web, usted acepta los términos de nuestra Política de
+              Privacidad.
+            </p>
+
+            <p class="information__text">
+              <span class="information__subpoint"><span class="information__subpoint__number">2.2. </span>
+                Cookies:
+              </span>
+              Usamos cookies para mejorar su experiencia de navegación en
+              nuestra tienda web. Al continuar utilizando el sitio, usted
+              acepta el uso de cookies de acuerdo con nuestra Política de
+              Cookies.
+            </p>
+
+            <h3 class="information__point">
+              <span class="information__number">3. </span> Envíos de los
+              pedidos
+            </h3>
+            <p class="information__text">
+              <span class="information__subpoint"><span class="information__subpoint__number">3.1. </span>
+                Proceso de Compra: </span>Los pedidos de productos se rigen por los términos y
+              condiciones específicos que se indican durante el proceso de
+              compra. Lea y acepte estos términos antes de completar una
+              compra.
+            </p>
+
+            <p class="information__text">
+              <span class="information__subpoint"><span class="information__subpoint__number">3.2. </span>
+                Envío:
+              </span>
+              Haremos todo lo posible para garantizar la entrega puntual de
+              los pedidos. Los plazos de entrega y las tarifas de envío pueden
+              variar según su ubicación. Consulte nuestras políticas de envío
+              para obtener información detallada.
+            </p>
+
+            <h3 class="information__point">
+              <span class="information__number">4. </span> Devoluciones de los
+              pedidos
+            </h3>
+            <p class="information__text">
+              <span class="information__subpoint"><span class="information__subpoint__number">4.1. </span>
+                Política de Devoluciones: </span>Aceptamos devoluciones de productos según nuestra Política de
+              Devoluciones. Lea y comprenda los términos y condiciones de
+              devolución antes de solicitar una devolución.
+            </p>
+
+            <p class="information__text">
+              <span class="information__subpoint"><span class="information__subpoint__number">4.2. </span>
+                Proceso de Devolución:
+              </span>
+              Para solicitar una devolución, siga las instrucciones detalladas
+              en nuestra Política de Devoluciones. Asegúrese de que los
+              productos devueltos cumplan con los requisitos especificados.
+            </p>
+
+            <p class="information__text information__text-final">
+              Al utilizar esta tienda web, usted acepta estos Términos y
+              Condiciones de Uso en su totalidad. Si no está de acuerdo con
+              alguno de estos términos, le recomendamos que no utilice la
+              tienda web. Nos reservamos el derecho de modificar estos
+              términos en cualquier momento sin previo aviso, y cualquier
+              cambio se hará efectivo inmediatamente después de su publicación
+              en el sitio web. Le instamos a revisar periódicamente estos
+              términos para estar al tanto de cualquier actualización.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="layout__footer">
+      <section class="footer__container">
+        <article class="footer__left">
+          <div class="footer__title">Nebula España</div>
+          <div class="footer__item">
+            Domicilio social: Avda. de Bruselas 30 28108 Alcobendas, Madrid
+          </div>
+          <div class="footer__item">Teléfono: 900 100 100</div>
+          <div class="footer__item">
+            Correo electrónico: atencionclientes@nebula.com
+          </div>
+          <div class="footer__item">
+            Horario apertura: Lunes-Viernes 9:00 a 21:00
+          </div>
+        </article>
+        <article class="footer__right">
+          <div class="footer__title">Navegación</div>
+          <div class="footer__right-container">
+            <div class="footer__right-content">
+              <ul class="footer_nav">
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="coches.html">Coches</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="categorias.html">Categorias</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="concurso.html">Concurso</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__right-content">
+              <ul class="footer_nav">
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="informacion.html">Información</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="nosotros.html">Nosotros</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="contacto.html">Contacto</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="cuenta.html">Cuenta</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="footer__bottom">
+        <div class="canvas__configuration">
+          <div class="canvas__menu">
+            <div class="canvas__menu-points">
+              <div class="canvas__menu-label">Puntos</div>
+              <input type="range" id="slider-points" min="0" max="100" step="5" value="50" />
+            </div>
+            <div class="canvas__menu-velocity">
+              <div class="canvas__menu-label">Velocidad</div>
+              <input type="range" id="slider-velocity" min="0" max="100" step="5" value="5" />
+            </div>
+          </div>
+          <svg id="canvas__configuration" class="canvas__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M495.9 166.6C499.2 175.2 496.4 184.9 489.6 191.2L446.3 230.6C447.4 238.9 448 247.4 448 256C448 264.6 447.4 273.1 446.3 281.4L489.6 320.8C496.4 327.1 499.2 336.8 495.9 345.4C491.5 357.3 486.2 368.8 480.2 379.7L475.5 387.8C468.9 398.8 461.5 409.2 453.4 419.1C447.4 426.2 437.7 428.7 428.9 425.9L373.2 408.1C359.8 418.4 344.1 427 329.2 433.6L316.7 490.7C314.7 499.7 307.7 506.1 298.5 508.5C284.7 510.8 270.5 512 255.1 512C241.5 512 227.3 510.8 213.5 508.5C204.3 506.1 197.3 499.7 195.3 490.7L182.8 433.6C167 427 152.2 418.4 138.8 408.1L83.14 425.9C74.3 428.7 64.55 426.2 58.63 419.1C50.52 409.2 43.12 398.8 36.52 387.8L31.84 379.7C25.77 368.8 20.49 357.3 16.06 345.4C12.82 336.8 15.55 327.1 22.41 320.8L65.67 281.4C64.57 273.1 64 264.6 64 256C64 247.4 64.57 238.9 65.67 230.6L22.41 191.2C15.55 184.9 12.82 175.3 16.06 166.6C20.49 154.7 25.78 143.2 31.84 132.3L36.51 124.2C43.12 113.2 50.52 102.8 58.63 92.95C64.55 85.8 74.3 83.32 83.14 86.14L138.8 103.9C152.2 93.56 167 84.96 182.8 78.43L195.3 21.33C197.3 12.25 204.3 5.04 213.5 3.51C227.3 1.201 241.5 0 256 0C270.5 0 284.7 1.201 298.5 3.51C307.7 5.04 314.7 12.25 316.7 21.33L329.2 78.43C344.1 84.96 359.8 93.56 373.2 103.9L428.9 86.14C437.7 83.32 447.4 85.8 453.4 92.95C461.5 102.8 468.9 113.2 475.5 124.2L480.2 132.3C486.2 143.2 491.5 154.7 495.9 166.6V166.6zM256 336C300.2 336 336 300.2 336 255.1C336 211.8 300.2 175.1 256 175.1C211.8 175.1 176 211.8 176 255.1C176 300.2 211.8 336 256 336z" />
+          </svg>
+        </div>
+        &copy;2023 Nebula<a class="footer__link" href="https://www.ccorreas.com">ccorreas.com</a>
+      </section>
+    </footer>
+  </main>
+</body>
+
+</html>
