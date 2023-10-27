@@ -7,16 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <script defer src="assets/js/backgroundCanvas.js"></script>
+  <script defer src="assets/js/media.js"></script>
   <title>Nebula</title>
 </head>
 
 <body>
   <main class="layout">
-    <canvas data-points="50" class="canvas__background" id="background-canvas"></canvas>
-    <canvas class="canvas__lines" id="lines-canvas"></canvas>
+    <div class="home__video-container home__video-container--hidden">
+      <video id="video" class="home__video" src="assets/video/home.mp4" loop playsinline></video>
+    </div>
+    <canvas data-points="50" class="canvas__background canvas__background--hidden" id="background-canvas"></canvas>
+    <canvas class="canvas__lines canvas__lines--hidden" id="lines-canvas"></canvas>
     <div class="layout__light"></div>
     <!-- NAVBAR -->
-    <nav class="layout__nav">
+    <nav class="layout__nav layout__nav--hidden">
       <div class="nav__container">
         <div class="nav__logo"></div>
         <ul class="nav__list">
@@ -89,6 +93,7 @@
     </nav>
     <!-- HOME -->
     <section class="layout__home">
+      <audio id="audio" src="assets/audio/home.mp3" preload autoplay loop></audio>
       <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
@@ -102,13 +107,18 @@
         </g>
       </svg>
       <article class="home__article">
-        <div>
-          <span class="home__description">EXPLORA</span>
-          <span class="nebula">NEBULA
-            <span class="nebula__shadow">NEBULA</span>
-          </span>
+        <div class="home__explore" id="explore">
+          <span class="home__description">EXPLORA <span class="nebula">NEBULA
+              <span class="nebula__shadow">NEBULA</span>
+            </span></span>
+          <svg class="home__explore-icon home__explore-icon--show" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 512">
+            <path
+              d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z" />
+          </svg>
+
+          <h1 class="home__title">COCHES DE ÚLTIMA GENERACIÓN</h1>
         </div>
-        <h1 class="home__title">COCHES DE ÚLTIMA GENERACIÓN</h1>
       </article>
     </section>
     <!-- FOOTER -->

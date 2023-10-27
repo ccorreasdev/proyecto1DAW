@@ -40,6 +40,7 @@ ul {
   /* SEGUNDA PRUEBA DE COLORES */
   --color-nodes: #000000ec;
   --color-primary: #151424;
+  --color-primary-a: #15142465;
   --color-secondary: #106ad2;
   --color-secondary-a: #106ad265;
   --color-terciary: #a32cdf;
@@ -86,6 +87,12 @@ body {
   z-index: 99;
   pointer-events: none;
   padding-top: 90px;
+  opacity: 1;
+  transition: all 5000ms ease-in-out;
+}
+
+.canvas__background--hidden {
+  opacity: 0;
 }
 
 .canvas__lines {
@@ -95,6 +102,12 @@ body {
   z-index: 98;
   pointer-events: none;
   padding-top: 90px;
+  opacity: 1;
+  transition: all 5000ms ease-in-out;
+}
+
+.canvas__lines--hidden {
+  opacity: 0;
 }
 
 .layout::after {
@@ -228,6 +241,14 @@ body {
   background-color: var(--color-secondary-a);
   background-color: transparent;
   border-bottom: solid 2px var(--color-secondary-a);
+  transition: all 5000ms ease-in-out;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.layout__nav--hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .nav__container {
@@ -330,6 +351,78 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 99;
+}
+
+.home__explore {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem 0rem;
+}
+
+.home__explore-icon {
+  width: 40px;
+  height: 40px;
+  fill: var(--color-text);
+  opacity: 0;
+  transition: all 600ms ease-in-out;
+  margin-bottom: 1rem;
+}
+
+@keyframes exploreIconAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.home__explore-icon--show {
+  opacity: 1;
+  animation: exploreIconAnimation 1s ease-in-out infinite;
+}
+
+.home__video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
+  height: calc(100vh);
+  opacity: 1;
+  transition: all 2000ms ease-in-out;
+  pointer-events: none;
+}
+
+.home__video-container--hidden {
+  opacity: 0;
+}
+
+.home__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.home__video-container::after {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: "";
+  background-color: var(--color-primary-a);
   z-index: 99;
 }
 
@@ -443,6 +536,12 @@ body {
   font-weight: lighter;
   color: var(--color-subtitle);
   text-shadow: 0px 0px 10px var(--color-text);
+  opacity: 0;
+  transition: all 2000ms ease-in-out;
+}
+
+.home__title--show {
+  opacity: 1;
 }
 
 .home__description {
@@ -687,7 +786,8 @@ body {
 /*ESTILOS ACCOUNT*/
 .account__container,
 .concurso__container,
-.contact__container {
+.contact__container,
+.about__container {
   width: 100%;
   height: calc(100vh - 90px);
   padding: 5rem;
@@ -1589,5 +1689,32 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+}
+
+/* ESTILOS ABOUT */
+.about__icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text);
+}
+
+.about__container__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.about__data {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
