@@ -7,8 +7,12 @@ const bgCanvas = document.querySelector(".canvas__background");
 const lnCanvas = document.querySelector(".canvas__lines");
 const exploreIcon = document.querySelector(".home__explore-icon");
 const homeTitle = document.querySelector(".home__title");
+const layoutModal = document.querySelector(".layout__modal");
+
+document.body.style.overflow = "hidden";
 
 explore.addEventListener("click", (e) => {
+  document.body.style.overflow = "auto";
   audio.play();
   video.play();
   layoutNav.classList.remove("layout__nav--hidden");
@@ -17,4 +21,5 @@ explore.addEventListener("click", (e) => {
   lnCanvas.classList.remove("canvas__lines--hidden");
   exploreIcon.classList.remove("home__explore-icon--show");
   homeTitle.classList.add("home__title--show");
+  layoutModal.classList.remove("layout__modal--show");
 });
