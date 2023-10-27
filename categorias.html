@@ -5,44 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="assets/css/responsive.css"
-      <script
-      defer
-      src="assets/js/backgroundCanvas.js"
-    />
-    <script defer src="assets/js/media.js"></script>
-    <script defer src="assets/js/menuResponsive.js"></script>
+    <script defer src="assets/js/backgroundCanvas.js"></script>
     <title>Nebula</title>
   </head>
 
   <body>
     <main class="layout">
-      <div id="nav-btn" class="nav__responsive-btn">X</div>
-      <div id="layout-modal" class="layout__modal layout__modal--show"></div>
-      <div class="home__video-container home__video-container--hidden">
-        <video
-          id="video"
-          class="home__video"
-          src="assets/video/home.mp4"
-          loop
-          playsinline
-        ></video>
-      </div>
       <canvas
-        data-points="50"
-        class="canvas__background canvas__background--hidden"
+        data-points="10"
+        class="canvas__background"
         id="background-canvas"
       ></canvas>
-      <canvas
-        class="canvas__lines canvas__lines--hidden"
-        id="lines-canvas"
-      ></canvas>
+      <canvas class="canvas__lines" id="lines-canvas"></canvas>
       <div class="layout__light"></div>
       <!-- NAVBAR -->
-
-      <nav class="layout__nav layout__nav--hidden">
+      <nav class="layout__nav">
         <div class="nav__container">
           <div class="nav__logo"></div>
           <ul class="nav__list">
@@ -142,6 +119,7 @@
               </a>
             </li>
           </ul>
+
           <ul class="nav__list">
             <li class="nav__item">
               <a class="nav__link" href="cuenta.html"
@@ -160,68 +138,53 @@
           </ul>
         </div>
       </nav>
-      <!-- HOME -->
-      <section class="layout__home">
-        <audio
-          id="audio"
-          src="assets/audio/home.mp3"
-          preload
-          autoplay
-          loop
-        ></audio>
-        <div class="waves__blur">
-          <svg
-            class="waves"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28"
-            preserveAspectRatio="none"
-            shape-rendering="auto"
-          >
-            <defs>
-              <path
-                id="gentle-wave"
-                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-              />
-              <filter id="blurFilter">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
-              </filter>
-            </defs>
-            <g class="parallax">
-              <use xlink:href="#gentle-wave" x="48" y="0" fill="#a32cdf" />
-              <use xlink:href="#gentle-wave" x="48" y="3" fill="#106ad2" />
-              <use
-                xlink:href="#gentle-wave"
-                x="48"
-                y="5"
-                fill="rgba(255,255,255,0.3)"
-              />
-              <use xlink:href="#gentle-wave" x="48" y="7" fill="#3073cd" />
-            </g>
-          </svg>
-        </div>
-        <article class="home__article">
-          <div class="home__explore" id="explore">
-            <span class="home__description"
-              >EXPLORA
-              <span class="nebula"
-                >NEBULA
-                <span class="nebula__shadow">NEBULA</span>
-              </span></span
-            >
-            <svg
-              class="home__explore-icon home__explore-icon--show"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 256 512"
-            >
-              <path
-                d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
-              />
-            </svg>
-
-            <h1 class="home__title">COCHES DE ÚLTIMA GENERACIÓN</h1>
+      <!-- ACCOUNT -->
+      <section class="layout__information">
+        <div class="page__title-container">
+          <div class="page__title-text">
+            <h2 class="page__title">CATEGORÍAS</h2>
           </div>
-        </article>
+        </div>
+        <svg
+          class="waves"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+          shape-rendering="auto"
+        >
+          <defs>
+            <path
+              id="gentle-wave"
+              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+            />
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="#a32cdf" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="#106ad2" />
+            <use
+              xlink:href="#gentle-wave"
+              x="48"
+              y="5"
+              fill="rgba(255,255,255,0.3)"
+            />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#3073cd" />
+          </g>
+        </svg>
+        <!-- INFORMACION -->
+        <div class="information__container">
+          <div class="information__content">
+            <div class="information__document">
+              <section class="categories__container">
+                <article class="">Hatchback</article>
+                <article class="">Coupé</article>
+                <article class="">Sedán</article>
+                <article class="">Todoterreno</article>
+                <article class="">Todoterreno</article>
+              </section>
+            </div>
+          </div>
+        </div>
       </section>
       <!-- FOOTER -->
       <footer class="layout__footer">
