@@ -2,6 +2,10 @@
 }
 
 @media (max-width: 1280px) {
+  .cars__container {
+    padding: 5rem 1rem;
+  }
+
   .layout__nav {
     position: absolute;
     justify-content: center;
