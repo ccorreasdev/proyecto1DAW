@@ -2,6 +2,10 @@
 }
 
 @media (max-width: 1280px) {
+  .account__container {
+    height: 100vh;
+  }
+
   .cars__container {
     padding: 5rem 1rem;
   }
@@ -54,8 +58,13 @@
     padding: 5rem 1rem;
   }
 
-  .concurso__container {
+  .concurso__container,
+  .account__container {
     padding: 5rem 1rem;
+  }
+
+  .account__content {
+    padding-top: 2rem;
   }
 
   .about__content {
@@ -97,29 +106,41 @@
   }
 }
 
-@media (max-width: 560px) {
-  .contact__name-email {
-    flex-direction: column;
-    gap: 7rem;
-  }
-
-  .contact__textarea {
-    width: 80%;
-    min-width: 250px;
-  }
-
-  .contact__textarea__label {
-    width: 80%;
-    min-width: 250px;
-  }
-
-  .contact__btn {
-    width: 80%;
-    min-width: 250px;
-  }
-}
-
 @media (max-width: 768px) {
+  .register__path {
+    padding-top: 2rem;
+    margin-top: 3rem;
+  }
+
+  .path__option {
+    width: 100px;
+  }
+
+  .account__container {
+    height: 150vh;
+  }
+
+  .account__register-container {
+    min-height: 100%;
+    max-width: 550px;
+    margin: 0px auto;
+    display: grid;
+    margin-top: 50px;
+    gap: 0rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "one one"
+      "two two"
+      "three three"
+      "four four"
+      "five five"
+      "six six"
+      "seven seven"
+      "eight  eight";
+    place-content: center;
+  }
+
   .bingo__tabla-cell {
     min-width: 11.11%;
     font-size: max(5vw, 2rem);
@@ -139,6 +160,28 @@
 
   .home__article {
     padding: 0rem 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact__name-email {
+    flex-direction: column;
+    gap: 7rem;
+  }
+
+  .contact__textarea {
+    width: 80%;
+    min-width: 250px;
+  }
+
+  .contact__textarea__label {
+    width: 80%;
+    min-width: 250px;
+  }
+
+  .contact__btn {
+    width: 80%;
+    min-width: 250px;
   }
 }
 
