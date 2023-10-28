@@ -949,7 +949,7 @@ body {
   color: var(--color-text);
   text-align: right;
   padding: 1.5rem 8rem;
-  clip-path: polygon(0px 0%, 400px 0%, 370px 100%, 0px 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 92.5% 100%, 0% 100%);
 }
 
 .account__form {

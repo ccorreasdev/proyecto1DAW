@@ -31,9 +31,26 @@
   .layout__home {
     margin-top: 90px;
   }
+
+  .page__title-container {
+    margin-top: 4rem;
+  }
+
+  .page__title-text {
+    width: 90%;
+    max-width: 400px;
+  }
 }
 
 @media (max-width: 1024px) {
+  .information__container {
+    padding: 5rem 1rem;
+  }
+
+  .information__document {
+    padding: 4rem 1rem;
+  }
+
   .layout__footer {
     flex-direction: column;
     height: 650px;
