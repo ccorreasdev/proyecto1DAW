@@ -23,7 +23,7 @@
 a {
   color: initial;
   text-decoration: none;
-  cursor: pointer;
+  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
 }
 
 ul {
@@ -66,6 +66,7 @@ ul {
 
 html {
   font-size: 62.5%;
+  cursor: url("../img/cursor2.png") 0 0, default;
 }
 
 body {
@@ -263,7 +264,7 @@ body {
   left: 10px;
   width: 50px;
   height: 50px;
-  cursor: pointer;
+  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
   z-index: 1000;
   transition: all 500ms ease-in-out;
   opacity: 1;
@@ -419,7 +420,7 @@ body {
 .home__explore {
   width: 100%;
   height: 100%;
-  cursor: pointer;
+  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -1080,7 +1081,7 @@ body {
 }
 
 .account__btn {
-  cursor: pointer;
+  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
   border: none;
   font-size: 1.6rem;
   display: inline-block;
@@ -1145,7 +1146,7 @@ body {
 }
 
 .account__btn-option {
-  cursor: pointer;
+  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
   border: none;
   font-size: 1.6rem;
   display: inline-block;
@@ -1270,7 +1271,7 @@ body {
 }
 
 .path__option {
-  cursor: pointer;
+  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
   width: 125px;
   padding: 1rem;
   height: 40px;
@@ -1497,7 +1498,7 @@ body {
   display: inline-block;
   font-size: 1.6rem;
   color: var(--color-text);
-  cursor: pointer;
+  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
   padding-bottom: 1rem;
   transition: all 300ms ease-in-out;
   position: relative;
@@ -1573,7 +1574,7 @@ body {
   position: absolute;
   top: -220px;
   left: 0px;
-  cursor: pointer;
+  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
   z-index: 99;
 }
 
@@ -1601,7 +1602,7 @@ body {
   fill: var(--color-text);
   position: relative;
   z-index: 99;
-  cursor: pointer;
+  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
 }
 
 .canvas__menu--active {
