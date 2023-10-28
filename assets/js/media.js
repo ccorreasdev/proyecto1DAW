@@ -24,10 +24,12 @@ mediaResponsiveBtn.addEventListener("click", (e) => {
     mediaLayoutNavResponsiveMenu.style.opacity = 0;
     isMediaResponsiveMenuActive = false;
     layoutNav.style.pointerEvents = "none";
+    mediaResponsiveBtn.classList.remove("nav__responsive-btn--active");
   } else {
     mediaLayoutNavResponsiveMenu.style.opacity = 1;
     isMediaResponsiveMenuActive = true;
     layoutNav.style.pointerEvents = "all";
+    mediaResponsiveBtn.classList.add("nav__responsive-btn--active");
   }
 });
 
@@ -36,7 +38,7 @@ window.addEventListener("resize", (e) => {
 
   if (isMediaStarted) {
     if (screenWidth.matches) {
-      console.log("RESIZING MAX WIDTH 1280 TRUE");
+      mediaResponsiveBtn.classList.remove("nav__responsive-btn--active");
       mediaLayoutNavResponsiveMenu.style.opacity = 0;
       isMediaResponsiveMenuActive = false;
       layoutNav.style.pointerEvents = "none";
@@ -45,7 +47,7 @@ window.addEventListener("resize", (e) => {
       mediaResponsiveBtn.setAttribute("pointer-events", "all");
       mediaResponsiveBtn.classList.remove("nav__responsive-btn--hidden");
     } else {
-      console.log("RESIZING MAX WIDTH 1280 FALSE");
+      mediaResponsiveBtn.classList.remove("nav__responsive-btn--active");
       mediaLayoutNavResponsiveMenu.style.opacity = 1;
       isMediaResponsiveMenuActive = false;
       layoutNav.style.pointerEvents = "all";
@@ -68,7 +70,6 @@ explore.addEventListener("click", (e) => {
   let screenWidth = window.matchMedia("(max-width: 1280px)");
 
   if (screenWidth.matches) {
-    console.log("MAX WIDTH 1280 TRUE");
     mediaLayoutNavResponsiveMenu.style.opacity = 0;
     isMediaResponsiveMenuActive = false;
     layoutNav.style.pointerEvents = "none";
@@ -77,8 +78,6 @@ explore.addEventListener("click", (e) => {
     mediaResponsiveBtn.setAttribute("pointer-events", "all");
     mediaResponsiveBtn.classList.remove("nav__responsive-btn--hidden");
   } else {
-    console.log("MAX WIDTH 1280 FALSE");
-
     mediaResponsiveBtn.setAttribute("pointer-events", "none");
     mediaResponsiveBtn.classList.add("nav__responsive-btn--hidden");
   }
