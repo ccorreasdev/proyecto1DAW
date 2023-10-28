@@ -11,8 +11,24 @@ responsiveBtn.addEventListener("click", (e) => {
   if (isResponsiveMenuActive) {
     layoutNavResponsiveMenu.style.opacity = 0;
     isResponsiveMenuActive = false;
+    layoutNavMenu.style.pointerEvents = "none";
   } else {
     layoutNavResponsiveMenu.style.opacity = 1;
     isResponsiveMenuActive = true;
+    layoutNavMenu.style.pointerEvents = "all";
+  }
+});
+
+window.addEventListener("resize", (e) => {
+  let screenWidth = window.matchMedia("(min-width: 1280px)");
+
+  if (screenWidth.matches) {
+    layoutNavResponsiveMenu.style.opacity = 1;
+    isResponsiveMenuActive = true;
+    layoutNavMenu.style.pointerEvents = "all";
+  } else {
+    layoutNavResponsiveMenu.style.opacity = 0;
+    isResponsiveMenuActive = false;
+    layoutNavMenu.style.pointerEvents = "none";
   }
 });
