@@ -50,6 +50,10 @@
     padding: 5rem 1rem;
   }
 
+  .concurso__container {
+    padding: 5rem 1rem;
+  }
+
   .about__content {
     flex-direction: column;
   }
@@ -112,6 +116,11 @@
 }
 
 @media (max-width: 768px) {
+  .bingo__tabla-cell {
+    min-width: 11.11%;
+    font-size: max(5vw, 2rem);
+  }
+
   .home__description {
     font-size: 3.5rem;
   }
