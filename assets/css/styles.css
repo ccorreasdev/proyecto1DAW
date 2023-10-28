@@ -1462,6 +1462,12 @@ body {
   margin-bottom: 2rem;
 }
 
+.footer__number {
+  font-family: "NouvelR", Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  color: var(--color-text);
+}
+
 .footer__item {
   margin-bottom: 1rem;
   font-size: 1.6rem;
