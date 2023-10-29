@@ -2,8 +2,13 @@
 }
 
 @media (max-width: 1280px) {
-  .account__container {
+  .account__container,
+  .concurso__container {
     height: 100vh;
+  }
+
+  .contact__container {
+    min-height: calc(100vh);
   }
 
   .cars__container {
@@ -164,6 +169,14 @@
 }
 
 @media (max-width: 560px) {
+  .contact__icon-container {
+    right: calc(20% * 0.5);
+  }
+
+  .contact__icon--right {
+    left: calc(100% - 40px);
+  }
+
   .contact__name-email {
     flex-direction: column;
     gap: 7rem;
@@ -196,5 +209,11 @@
 
   .nebula__shadow {
     font-size: 4rem;
+  }
+}
+
+@media (max-width: 345px) {
+  .contact__icon-container {
+    right: 0;
   }
 }

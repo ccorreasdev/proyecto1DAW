@@ -23,11 +23,15 @@
 a {
   color: initial;
   text-decoration: none;
-  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
 }
 
 ul {
   list-style: none;
+}
+
+input[type="range"] {
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
 }
 
 @property --gradient-angle {
@@ -66,7 +70,7 @@ ul {
 
 html {
   font-size: 62.5%;
-  cursor: url("../img/cursor2.png") 0 0, default;
+  cursor: url("../img/cursor.png") 12.5 12.5, default;
 }
 
 body {
@@ -264,7 +268,7 @@ body {
   left: 10px;
   width: 50px;
   height: 50px;
-  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
   z-index: 1000;
   transition: all 500ms ease-in-out;
   opacity: 1;
@@ -420,7 +424,7 @@ body {
 .home__explore {
   width: 100%;
   height: 100%;
-  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -1081,7 +1085,7 @@ body {
 }
 
 .account__btn {
-  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
   border: none;
   font-size: 1.6rem;
   display: inline-block;
@@ -1146,7 +1150,7 @@ body {
 }
 
 .account__btn-option {
-  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
   border: none;
   font-size: 1.6rem;
   display: inline-block;
@@ -1271,7 +1275,7 @@ body {
 }
 
 .path__option {
-  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
   width: 125px;
   padding: 1rem;
   height: 40px;
@@ -1498,7 +1502,7 @@ body {
   display: inline-block;
   font-size: 1.6rem;
   color: var(--color-text);
-  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
   padding-bottom: 1rem;
   transition: all 300ms ease-in-out;
   position: relative;
@@ -1574,7 +1578,7 @@ body {
   position: absolute;
   top: -220px;
   left: 0px;
-  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
   z-index: 99;
 }
 
@@ -1602,7 +1606,7 @@ body {
   fill: var(--color-text);
   position: relative;
   z-index: 99;
-  cursor: url("../img/cursor-pointer.png") 0 0, pointer;
+  cursor: url("../img/cursor-pointer.png") 12.5 12.5, pointer;
 }
 
 .canvas__menu--active {
