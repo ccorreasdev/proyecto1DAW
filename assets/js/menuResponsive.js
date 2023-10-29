@@ -9,9 +9,11 @@ const mediaLayoutNavResponsiveMenu = document.querySelector(
 let isMediaStarted = true;
 let screenWidth = window.matchMedia("(max-width: 1280px)");
 let isMediaResponsiveMenuActive = false;
+let audioMenuResponsive = new Audio("assets/audio/menu.mp3");
 layoutNav.style.transitionDuration = "300ms";
 
 mediaResponsiveBtn.addEventListener("click", (e) => {
+  audioMenuResponsive.play();
   layoutNav.classList.remove("layout__nav--hidden");
   if (isMediaResponsiveMenuActive) {
     mediaLayoutNavResponsiveMenu.style.opacity = 0;

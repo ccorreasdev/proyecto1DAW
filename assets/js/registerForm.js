@@ -27,6 +27,9 @@ const registerDir = document.querySelector("#register-dir");
 const registerCity = document.querySelector("#register-city");
 const registerProvince = document.querySelector("#register-province");
 const registerPostal = document.querySelector("#register-postal");
+let audioErrorRegister = new Audio("assets/audio/error.mp3");
+let audioCorrectRegister = new Audio("assets/audio/correct.mp3");
+let audioChangeRegisterSection = new Audio("assets/audio/wind.mp3");
 
 const unselectRegisterPath = () => {
   registerPersonal.classList.remove("path__option--active");
@@ -52,6 +55,7 @@ registerPersonal.addEventListener("mousedown", (e) => {
 });
 contactPrevious.addEventListener("mousedown", (e) => {
   e.preventDefault();
+  audioChangeRegisterSection.play();
   setContentPersonal();
 });
 
@@ -81,8 +85,10 @@ const checkRegisterFieldsPersonal = () => {
   }
 
   if (errorRegisterFieldsPersonal) {
+    audioErrorRegister.play();
     return false;
   } else {
+    audioCorrectRegister.play();
     return true;
   }
 };
@@ -111,6 +117,7 @@ personalNext.addEventListener("mousedown", (e) => {
   }
 });
 directionPrevious.addEventListener("mousedown", (e) => {
+  audioChangeRegisterSection.play();
   e.preventDefault();
   setContentContact();
 });
@@ -131,8 +138,10 @@ const checkRegisterFieldsContact = () => {
   }
 
   if (errorRegisterFieldsContact) {
+    audioErrorRegister.play();
     return false;
   } else {
+    audioCorrectRegister.play();
     return true;
   }
 };
@@ -189,8 +198,10 @@ const checkRegisterFieldsDirection = () => {
   }
 
   if (errorRegisterFieldsDirection) {
+    audioErrorRegister.play();
     return false;
   } else {
+    audioCorrectRegister.play();
     return true;
   }
 };

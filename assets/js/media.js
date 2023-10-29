@@ -13,12 +13,14 @@ const mediaLayoutNavMenu = document.querySelector(".layout__nav");
 const mediaLayoutNavResponsiveMenu = document.querySelector(
   ".layout__nav-responsive"
 );
+let audioMenuResponsiveMedia = new Audio("assets/audio/menu.mp3");
 let isMediaStarted = false;
 let screenWidth;
 
 let isMediaResponsiveMenuActive = false;
 
 mediaResponsiveBtn.addEventListener("click", (e) => {
+  audioMenuResponsiveMedia.play();
   layoutNav.classList.remove("layout__nav--hidden");
   if (isMediaResponsiveMenuActive) {
     mediaLayoutNavResponsiveMenu.style.opacity = 0;
