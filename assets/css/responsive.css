@@ -7,7 +7,8 @@
     height: 100vh;
   }
 
-  .contact__container {
+  .contact__container,
+  .categories__container {
     min-height: calc(100vh);
   }
 
@@ -112,6 +113,10 @@
 }
 
 @media (max-width: 768px) {
+  .categories__container {
+    padding-top: 7rem;
+  }
+
   .register__path {
     padding-top: 2rem;
     margin-top: 3rem;
@@ -199,6 +204,15 @@
 }
 
 @media (max-width: 520px) {
+  .categories__category {
+    width: 100%;
+    height: auto;
+  }
+
+  .category__label {
+    font-size: 10vw;
+  }
+
   .home__description {
     font-size: 3rem;
   }

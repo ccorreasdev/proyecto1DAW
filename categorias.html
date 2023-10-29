@@ -6,17 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css">
   <script defer src="assets/js/backgroundCanvas.js"></script>
+  <script defer src="assets/js/menuResponsive.js"></script>
   <title>Nebula</title>
 </head>
 
 <body>
   <main class="layout">
+    <!-- RESPONSIVE NAV -->
+    <div id="nav-btn" class="nav__responsive-btn nav__responsive-btn--hidden">
+      <svg class="responsive__nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+        <path
+          d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z" />
+      </svg>
+    </div>
     <canvas data-points="10" class="canvas__background" id="background-canvas"></canvas>
     <canvas class="canvas__lines" id="lines-canvas"></canvas>
     <div class="layout__light"></div>
     <!-- NAVBAR -->
-    <nav class="layout__nav">
+    <nav class="layout__nav layout__nav-responsive">
       <div class="nav__container">
         <div class="nav__logo"></div>
         <ul class="nav__list">
@@ -89,7 +98,7 @@
       </div>
     </nav>
     <!-- ACCOUNT -->
-    <section class="layout__information">
+    <section class="layout__categories">
       <div class="page__title-container">
         <div class="page__title-text">
           <h2 class="page__title">CATEGORÍAS</h2>
@@ -108,15 +117,28 @@
         </g>
       </svg>
       <!-- INFORMACION -->
-      <div class="information__container">
+      <div class="categories__container">
         <div class="information__content">
           <div class="information__document">
-            <section class="categories__container">
-              <article class="">Hatchback</article>
-              <article class="">Coupé</article>
-              <article class="">Sedán</article>
-              <article class="">Todoterreno</article>
-              <article class="">Todoterreno</article>
+            <section class="categories__list">
+              <article class="categories__category">
+                <div class="category__img-container">
+                  <img class="category__img" src="assets/img/categories/competition.webp" alt="competición">
+                </div>
+                <div class="category__label">Competición</div>
+              </article>
+              <article class="categories__category">
+                <div class="category__img-container">
+                  <img class="category__img" src="assets/img/categories/electric.jpg" alt="competición">
+                </div>
+                <div class="category__label">Eléctrico</div>
+              </article>
+              <article class="categories__category">
+                <div class="category__img-container">
+                  <img class="category__img" src="assets/img/categories/suv.jpg" alt="competición">
+                </div>
+                <div class="category__label">Suv</div>
+              </article>
             </section>
           </div>
         </div>
